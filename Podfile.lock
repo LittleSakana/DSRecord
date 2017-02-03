@@ -1,0 +1,20 @@
+PODS:
+  - FDFullscreenPopGesture (1.1)
+  - IQKeyboardManager (4.0.8)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+
+DEPENDENCIES:
+  - FDFullscreenPopGesture
+  - IQKeyboardManager
+  - YYCategories
+
+SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+
+PODFILE CHECKSUM: 4ad3e707fa753e6a4660df111da7721469f3c757
+
+COCOAPODS: 1.1.1
