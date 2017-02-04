@@ -35,7 +35,7 @@
 #pragma mark - 初始化页面
 - (void)initPage{
     
-    self.navigationItem.title = @"添加运动项目";
+    self.navigationItem.title = @"运动项目";
     
     _tfName = [[UITextField alloc] init];
     self.tfName.placeholder = @"请输入运动项目名称";
@@ -92,14 +92,7 @@
     if (self.strKeyword && self.strKeyword.length > 0) {
         flag = [SportsItem addObjectWithKeyword:self.strKeyword andName:self.tfName.text];
     }else{
-        NSArray *arr = [SportsItem searchSportsWithKeyword:@""];
-        NSString *strKeyword1;
-        if (arr && arr.count > 0) {
-            strKeyword1 = [NSString stringWithFormat:@"sportsItem%lu",(unsigned long)arr.count];
-        }else{
-            strKeyword1 = @"sportsItem0";
-        }
-        flag = [SportsItem addObjectWithKeyword:strKeyword1 andName:self.tfName.text];
+        flag = [SportsItem addObjectWithKeyword:[self generateKeyword] andName:self.tfName.text];
     }
     if (flag) {
         [self showMessage:@"保存运动项目成功"];
@@ -114,5 +107,12 @@
 #pragma mark - 代理方法
 
 #pragma mark - 其他
-
+- (NSString*)generateKeyword{
+    NSString *strKeyword = [NSString stringWithFormat:@"sportsItem%i",arc4random()/1000000];
+    NSArray *arr = [SportsItem searchSportsWithKeyword:strKeyword];
+    if (arr && arr.count > 0) {
+        strKeyword = [self generateKeyword];
+    }
+    return strKeyword;
+}
 @end
