@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Sports : NSManagedObject
 
-+ (BOOL)insertSports:(Sports*)sport;
++ (BOOL)addObjectWithTime:(NSString*)time andKeyword:(NSString*)keyword andCount:(int16_t)count;
 
-+ (BOOL)deleteSports:(Sports*)sport;
++ (BOOL)deleteObjectWithTime:(NSString*)time andKeyword:(NSString*)keyword;
 
-+ (BOOL)modifySports:(Sports*)sport;
++ (BOOL)modifyObejectByTime:(NSString*)time andKeyword:(NSString*)keyword andSports:(Sports*)sport;
 
 + (NSArray*)searchSportsWithKeyword:(NSString*)keyword andTime:(NSString*)time;
 

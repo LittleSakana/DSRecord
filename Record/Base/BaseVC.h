@@ -10,4 +10,10 @@
 
 @interface BaseVC : UIViewController
 
+- (void)showMessage:(NSString *)msg;
+
+- (void)popVC;
+
+- (void)dsPushViewController:(UIViewController*)vc animated:(BOOL)animated;
+
 @end

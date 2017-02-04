@@ -9,6 +9,7 @@
 #import "SportsVC.h"
 #import "Sports+CoreDataClass.h"
 #import <NSDate+YYAdd.h>
+#import "SportsAddVC.h"
 
 @interface SportsVC ()
 
@@ -41,12 +42,8 @@
 #pragma mark - 按钮点击事件
 
 - (void)addSportRecord{
-//    Sports *sport = [[Sports alloc] init];
-//    sport.sports_count = 30;
-//    sport.sports_keyword = @"Squats";
-//    sport.sports_name = @"深蹲";
-//    sport.sports_time = [[[NSDate date] stringWithISOFormat] substringToIndex:9];
-    [Sports insertSports:nil];
+    SportsAddVC *vcAdd = [SportsAddVC new];
+    [self dsPushViewController:vcAdd animated:YES];
 }
 
 #pragma mark - 网络请求

@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "sports@2x.png",
+      "filename" : "sports@3x-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "sports@3x.png",
+      "filename" : "sports@2x.png",
       "scale" : "3x"
     }
   ],

@@ -1,20 +1,29 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
   - IQKeyboardManager (4.0.8)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - FDFullscreenPopGesture
   - IQKeyboardManager
+  - Masonry
+  - MBProgressHUD
   - YYCategories
+  - YYModel
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 4ad3e707fa753e6a4660df111da7721469f3c757
+PODFILE CHECKSUM: 7452c369d85c884a556bb0cd7f5b875a5c034c6f
 
 COCOAPODS: 1.1.1

@@ -4,4 +4,7 @@ target 'Record' do
 pod 'IQKeyboardManager'
 pod 'YYCategories'
 pod 'FDFullscreenPopGesture'
+pod 'Masonry'
+pod 'YYModel'
+pod 'MBProgressHUD'
 end
