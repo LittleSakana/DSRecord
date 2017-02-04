@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"首页";
+    self.navigationItem.title = @"Home";
 }
 
 - (void)didReceiveMemoryWarning {

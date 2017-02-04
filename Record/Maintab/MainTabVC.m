@@ -34,15 +34,18 @@
     
     _vcHome = [[HomeVC alloc] init];
     UINavigationController *navigaitonHome = [[UINavigationController alloc] initWithRootViewController:_vcHome];
-    navigaitonHome.tabBarItem.title = @"首页";
+    navigaitonHome.tabBarItem.title = @"Home";
+    navigaitonHome.tabBarItem.image = [UIImage imageNamed:@"home"];
     
     _vcSports = [[SportsVC alloc] init];
     UINavigationController *navigaitonSports = [[UINavigationController alloc] initWithRootViewController:_vcSports];
-    navigaitonSports.tabBarItem.title = @"运动";
+    navigaitonSports.tabBarItem.title = @"Sports";
+    navigaitonSports.tabBarItem.image = [UIImage imageNamed:@"sports"];
     
     _vcForeignLanguage = [[ForeignLanguageVC alloc] init];
     UINavigationController *navigaitonForeignLanguage = [[UINavigationController alloc] initWithRootViewController:_vcForeignLanguage];
-    navigaitonForeignLanguage.tabBarItem.title = @"外语";
+    navigaitonForeignLanguage.tabBarItem.title = @"Language";
+    navigaitonForeignLanguage.tabBarItem.image = [UIImage imageNamed:@"language"];
     
     self.viewControllers = @[navigaitonHome,navigaitonSports,navigaitonForeignLanguage];
 }

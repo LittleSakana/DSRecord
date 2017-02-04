@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"外语";
+    self.navigationItem.title = @"Language";
 }
 
 - (void)didReceiveMemoryWarning {
