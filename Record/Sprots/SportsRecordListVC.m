@@ -34,7 +34,7 @@
 
 #pragma mark - 初始化页面
 - (void)initPage{
-    self.navigationItem.title = @"记录列表";
+    self.navigationItem.title = [NSString stringWithFormat:@"%@记录",self.itemName];
         
     _tbvMain = [UITools createTableViewWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain delegate:self];
     self.tbvMain.backgroundColor = [UIColor clearColor];

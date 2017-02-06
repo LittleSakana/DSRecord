@@ -95,7 +95,7 @@
     
     // 创建谓词对象，过滤出符合要求的对象，也就是要删除的对象
     NSMutableArray *preDicateArr = [NSMutableArray array];
-    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_time like %@",time]];
+    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_time CONTAINS[cd] %@",time]];
     [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_keyword = %@",keyword]];
     NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preDicateArr];
     request.predicate = predicate;

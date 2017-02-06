@@ -17,7 +17,9 @@
 
 @property (nonatomic, strong) UISegmentedControl    *segDate;
 @property (nonatomic, strong) UIScrollView          *scrollMain;
+@property (nonatomic, strong) UILabel               *lblTime;
 @property (nonatomic, strong) NSMutableArray        *arrData;
+@property (nonatomic, copy  ) NSString              *strSearchTime;
 
 @end
 
@@ -47,9 +49,21 @@
     [self initRightNavigationBarItem];
     
     //segment
+    _segDate = [[UISegmentedControl alloc] initWithItems:@[@"天",@"月",@"年"]];
+    self.segDate.frame = CGRectMake(50, 20, YYScreenSize().width - 100, 30);
+    self.segDate.selectedSegmentIndex = 0;
+    [self.segDate addTarget:self action:@selector(segmentedValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.segDate];
+    
+    _lblTime = [UITools createLabelWithFrame:CGRectMake(0, self.segDate.bottom + 20, YYScreenSize().width, 40)
+                                                text:self.strSearchTime
+                                                font:[UIFont boldSystemFontOfSize:30]
+                                           textColor:[UIColor colorWithHexString:Color_blue]
+                                       textAlignment:NSTextAlignmentCenter
+                                           SuperView:self.view];
     
     //统计数据
-    _scrollMain = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollMain = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.lblTime.bottom, YYScreenSize().width, self.view.height - self.lblTime.bottom - 49)];
     [self.view addSubview:self.scrollMain];
 }
 
@@ -68,7 +82,7 @@
     CGFloat y = padding;
     for (int i = 0; i < self.arrData.count; i++) {
         SportsItem *item = [self.arrData objectAtIndex:i];
-        NSArray *arrRecord = [Sports searchSportsWithKeyword:item.keyword andTime:[R_Utils getShortStringDate:nil]];
+        NSArray *arrRecord = [Sports searchSportsWithKeyword:item.keyword andTime:self.strSearchTime];
         int64_t countAll = 0;
         for (Sports *sportRecord in arrRecord) {
             countAll += sportRecord.sports_count;
@@ -82,7 +96,8 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
             SportsRecordListVC *vc = [SportsRecordListVC new];
             vc.keyword = item.keyword;
-            vc.time = [R_Utils getShortStringDate:nil];
+            vc.time = weakSelf.strSearchTime;
+            vc.itemName = item.name;
             [weakSelf dsPushViewController:vc animated:YES];
         }];
         [vBg addGestureRecognizer:tapGesture];
@@ -119,6 +134,7 @@
 #pragma mark - 初始化数据
 - (void)initData{
     _arrData = [NSMutableArray array];
+    self.strSearchTime = [R_Utils getShortStringDate:nil];
 }
 
 #pragma mark - 按钮点击事件
@@ -126,6 +142,19 @@
 - (void)addSportRecord{
     SportsAddVC *vcAdd = [SportsAddVC new];
     [self dsPushViewController:vcAdd animated:YES];
+}
+
+- (void)segmentedValueChanged:(UISegmentedControl*)segControl{
+    self.strSearchTime = [R_Utils getShortStringDate:nil];
+    if (segControl.selectedSegmentIndex == 0) {
+        
+    }else if (segControl.selectedSegmentIndex == 1) {
+        self.strSearchTime = [self.strSearchTime substringToIndex:7];
+    }else if (segControl.selectedSegmentIndex == 2) {
+        self.strSearchTime = [self.strSearchTime substringToIndex:4];
+    }
+    self.lblTime.text = self.strSearchTime;
+    [self fetchData];
 }
 
 #pragma mark - 网络请求
