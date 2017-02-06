@@ -58,14 +58,16 @@
                                    textColor:[UIColor colorWithHexString:@"666666"]
                                textAlignment:NSTextAlignmentRight
                                    SuperView:vBg];
-    __weak SportsAddVC *weakSelf = self;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        SportsItemVC *vcSportsItem = [SportsItemVC new];
-        vcSportsItem.delegate = weakSelf;
-        [weakSelf dsPushViewController:vcSportsItem animated:YES];
-    }];
-    self.lblType.userInteractionEnabled = YES;
-    [self.lblType addGestureRecognizer:tapGesture];
+    if (!self.sportsRecord) {
+        __weak SportsAddVC *weakSelf = self;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            SportsItemVC *vcSportsItem = [SportsItemVC new];
+            vcSportsItem.delegate = weakSelf;
+            [weakSelf dsPushViewController:vcSportsItem animated:YES];
+        }];
+        self.lblType.userInteractionEnabled = YES;
+        [self.lblType addGestureRecognizer:tapGesture];
+    }
     CGRect rectSeparateLine = CGRectMake(0, lblTypeTitle.bottom, vBg.width, 1);
     [UITools createViewWithFrame:rectSeparateLine
                  backgroundColor:[UIColor colorWithHexString:@"f5f5f5"]
@@ -83,12 +85,14 @@
                                    textColor:[UIColor colorWithHexString:@"666666"]
                                textAlignment:NSTextAlignmentRight
                                    SuperView:vBg];
-    __weak SportsAddVC *weakSelf1 = self;
-    UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        [weakSelf1 showDatePicker];
-    }];
-    self.lblTime.userInteractionEnabled = YES;
-    [self.lblTime addGestureRecognizer:tapGesture1];
+    if (!self.sportsRecord) {
+        __weak SportsAddVC *weakSelf1 = self;
+        UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            [weakSelf1 showDatePicker];
+        }];
+        self.lblTime.userInteractionEnabled = YES;
+        [self.lblTime addGestureRecognizer:tapGesture1];
+    }
     CGRect rectSeparateLine1 = CGRectMake(0, lblTimeTitle.bottom, vBg.width, 1);
     [UITools createViewWithFrame:rectSeparateLine1
                  backgroundColor:[UIColor colorWithHexString:@"f5f5f5"]
@@ -112,7 +116,7 @@
     [vBg addSubview:self.tfCount];
     
     _btnAdd = [UITools createButtonWithFrame:CGRectMake(20, vBg.bottom + 30, YYScreenSize().width - 40, 45)
-                                       title:@"添加"
+                                       title:@"保存"
                                     setImage:nil
                                     setBgImg:nil
                                         font:[UIFont systemFontOfSize:18]
@@ -122,6 +126,12 @@
     self.btnAdd.layer.masksToBounds = YES;
     self.btnAdd.layer.cornerRadius = 3;
     [self.btnAdd addTarget:self action:@selector(clickBtnAdd) forControlEvents:UIControlEventTouchUpInside];
+    
+    //如果传入有记录，则表示修改，不允许修改记录类型和时间
+    if (self.sportsRecord) {
+        self.lblType.text = [NSString stringWithFormat:@"%@ >",self.sportsRecord.sports_name];
+        self.tfCount.text = [NSString stringWithFormat:@"%i",self.sportsRecord.sports_count];
+    }
     
     [self initPickerView];
 }
@@ -170,14 +180,18 @@
 
 #pragma mark - 初始化数据
 - (void)initData{
-    self.strSportsTime = [R_Utils getShortStringDate:nil];
+    if (self.sportsRecord) {
+        self.strSportsTime = self.sportsRecord.sports_time;
+    }else{
+        self.strSportsTime = [R_Utils getShortStringDate:nil];
+    }
 }
 
 #pragma mark - 按钮点击事件
 - (void)clickBtnAdd{
     [self hideDatePicker];
     [self.view endEditing:YES];
-    if (!self.sportsType) {
+    if (!self.sportsType && !self.sportsRecord) {
         [self showMessage:@"请选择运动项目"];
         return;
     }
@@ -189,7 +203,13 @@
         [self showMessage:@"请填写个数"];
         return;
     }
-    BOOL flag = [Sports addObjectWithTime:self.strSportsTime andKeyword:self.sportsType.keyword andCount:[self.tfCount.text intValue]];
+    NSString *strKeyword = @"";
+    if (self.sportsRecord) {
+        strKeyword = self.sportsRecord.sports_keyword;
+    }else{
+        strKeyword = self.sportsType.keyword;
+    }
+    BOOL flag = [Sports addObjectWithTime:self.strSportsTime andKeyword:strKeyword andCount:[self.tfCount.text intValue]];
     if (flag) {
         [self showMessage:@"保存运动记录成功"];
         [self performSelector:@selector(popVC) withObject:nil afterDelay:1.5];

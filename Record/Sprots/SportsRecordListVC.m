@@ -25,6 +25,10 @@
     [super viewDidLoad];
     [self initData];
     [self initPage];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self refreashData];
 }
 
