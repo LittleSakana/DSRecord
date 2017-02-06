@@ -53,30 +53,25 @@
 
 + (BOOL)deleteObjectWithTime:(NSString*)time andKeyword:(NSString*)keyword{
     
-    // 建立获取数据的请求对象，指明对Sports实体进行删除操作
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Sports"];
-    
-    // 创建谓词对象，过滤出符合要求的对象，也就是要删除的对象
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sports_time = %@ & sports_keyword = %@", time,keyword];
-    request.predicate = predicate;
-    
-    // 执行获取操作，找到要删除的对象
-    NSError *error = nil;
-    NSArray *employees = [[DataManagement sharedDataManagement].managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *employees = [self searchSportsWithKeyword:keyword andTime:time];
+    if (!employees || employees.count == 0) {
+        return NO;
+    }
     
     // 遍历符合删除要求的对象数组，执行删除操作
     [employees enumerateObjectsUsingBlock:^(Sports * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [[DataManagement sharedDataManagement].managedObjectContext deleteObject:obj];
     }];
     
-    // 保存上下文
+    // 通过上下文保存对象，并在保存前判断是否有更改
+    NSError *error = nil;
     if ([DataManagement sharedDataManagement].managedObjectContext.hasChanges) {
-        [[DataManagement sharedDataManagement].managedObjectContext save:nil];
+        [[DataManagement sharedDataManagement].managedObjectContext save:&error];
     }
     
     // 错误处理
     if (error) {
-        NSLog(@"CoreData Delete Data Error : %@", error);
+        NSLog(@"CoreData Insert Data Error : %@", error);
         return NO;
     }
     return YES;
@@ -100,7 +95,7 @@
     
     // 创建谓词对象，过滤出符合要求的对象，也就是要删除的对象
     NSMutableArray *preDicateArr = [NSMutableArray array];
-    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_time = %@",time]];
+    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_time like %@",time]];
     [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_keyword = %@",keyword]];
     NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preDicateArr];
     request.predicate = predicate;

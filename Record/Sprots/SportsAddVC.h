@@ -7,7 +7,10 @@
 //
 
 #import "BaseVC.h"
+#import "Sports+CoreDataClass.h"
 
 @interface SportsAddVC : BaseVC
+
+@property (nonatomic, strong) Sports *sportsRecord;
 
 @end

@@ -10,6 +10,7 @@
 #import "Sports+CoreDataClass.h"
 #import <NSDate+YYAdd.h>
 #import "SportsAddVC.h"
+#import "SportsRecordListVC.h"
 #import "SportsItem+CoreDataClass.h"
 
 @interface SportsVC ()
@@ -75,6 +76,16 @@
         UIView *vBg = [UITools createViewWithFrame:CGRectMake(x, y, itemWidth, itemHeight)
                                    backgroundColor:[UIColor whiteColor]
                                          superView:self.scrollMain];
+        vBg.tag = i;
+        vBg.userInteractionEnabled = YES;
+        __weak SportsVC *weakSelf = self;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            SportsRecordListVC *vc = [SportsRecordListVC new];
+            vc.keyword = item.keyword;
+            vc.time = [R_Utils getShortStringDate:nil];
+            [weakSelf dsPushViewController:vc animated:YES];
+        }];
+        [vBg addGestureRecognizer:tapGesture];
         
         if (x + itemWidth + padding >= self.scrollMain.width) {
             x = padding;

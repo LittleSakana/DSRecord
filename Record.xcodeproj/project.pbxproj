@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		638986DDFE781E740FBA445A /* libPods-Record.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */; };
+		E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9077D4F1E48788900025418 /* SportsRecordListVC.m */; };
 		E9480AE81E456CCD00977A21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9480AE71E456CCD00977A21 /* LaunchScreen.storyboard */; };
 		E9480AEC1E459E4100977A21 /* R_Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AEB1E459E4100977A21 /* R_Utils.m */; };
 		E9480AF11E45A86E00977A21 /* SportsItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AEE1E45A86E00977A21 /* SportsItem+CoreDataClass.m */; };
@@ -57,6 +58,8 @@
 		16DD218C103556F34CFA59E5 /* Pods-Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.release.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.release.xcconfig"; sourceTree = "<group>"; };
 		1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Record.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB30D94857F71693411EA79 /* Pods-Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.debug.xcconfig"; sourceTree = "<group>"; };
+		E9077D4E1E48788900025418 /* SportsRecordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsRecordListVC.h; sourceTree = "<group>"; };
+		E9077D4F1E48788900025418 /* SportsRecordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsRecordListVC.m; sourceTree = "<group>"; };
 		E9480AE71E456CCD00977A21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9480AEA1E459E4100977A21 /* R_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R_Utils.h; sourceTree = "<group>"; };
 		E9480AEB1E459E4100977A21 /* R_Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R_Utils.m; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				E9480AF71E45B13300977A21 /* SportsItemVC.m */,
 				E9480AF91E45B2A700977A21 /* SportsItemAddVC.h */,
 				E9480AFA1E45B2A700977A21 /* SportsItemAddVC.m */,
+				E9077D4E1E48788900025418 /* SportsRecordListVC.h */,
+				E9077D4F1E48788900025418 /* SportsRecordListVC.m */,
 			);
 			path = Sprots;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				E96CBC2F1E44258B006A0171 /* ForeignLanguageVC.m in Sources */,
 				E96CBC631E446D7E006A0171 /* Run+CoreDataClass.m in Sources */,
 				E96CBC2C1E442551006A0171 /* SportsVC.m in Sources */,
+				E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */,
 				E96CBBEB1E441C89006A0171 /* AppDelegate.m in Sources */,
 				E9480AF21E45A86E00977A21 /* SportsItem+CoreDataProperties.m in Sources */,
 				E96CBC5F1E446D7E006A0171 /* Sports+CoreDataClass.m in Sources */,

@@ -8,7 +8,6 @@
 
 #import "SportsAddVC.h"
 #import "SportsItemVC.h"
-#import "Sports+CoreDataClass.h"
 
 @interface SportsAddVC ()<SportsItemDelegate,UITextFieldDelegate>
 
@@ -193,6 +192,7 @@
     BOOL flag = [Sports addObjectWithTime:self.strSportsTime andKeyword:self.sportsType.keyword andCount:[self.tfCount.text intValue]];
     if (flag) {
         [self showMessage:@"保存运动记录成功"];
+        [self performSelector:@selector(popVC) withObject:nil afterDelay:1.5];
     }else{
         [self showMessage:@"保存运动记录失败"];
     }
