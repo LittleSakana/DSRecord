@@ -41,7 +41,7 @@
     self.tfName.placeholder = @"请输入运动项目名称";
     self.tfName.backgroundColor = [UIColor whiteColor];
     self.tfName.frame = CGRectMake(20, 30, YYScreenSize().width - 40, 40);
-    self.tfName.textColor = [UIColor colorWithHexString:@"007aff"];
+    self.tfName.textColor = [UIColor colorWithHexString:Color_blue];
     self.tfName.leftViewMode = UITextFieldViewModeAlways;
     self.tfName.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 40)];
     [self.tfName becomeFirstResponder];
@@ -53,7 +53,7 @@
                                              setBgImg:nil
                                                  font:[UIFont systemFontOfSize:16]
                                            titleColor:[UIColor whiteColor]
-                                      backgroundColor:[UIColor colorWithHexString:@"007aff"]
+                                      backgroundColor:[UIColor colorWithHexString:Color_blue]
                                             SuperView:self.view];
     self.btnAdd.layer.masksToBounds = YES;
     self.btnAdd.layer.cornerRadius = 3;

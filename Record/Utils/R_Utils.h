@@ -10,7 +10,7 @@
 
 @interface R_Utils : NSObject
 
-+ (NSString*)getShortStringDate;
++ (NSString*)getShortStringDate:(NSDate*)date;
 
 + (void)hideExtraCellLine:(UITableView *)tableView;
 

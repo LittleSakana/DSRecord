@@ -73,6 +73,7 @@
 		E9480AFC1E45B3B500977A21 /* UITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITools.h; sourceTree = "<group>"; };
 		E9480AFD1E45B3B500977A21 /* UITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITools.m; sourceTree = "<group>"; };
 		E9480AFF1E45B3E300977A21 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E94B45221E47059B0082E90E /* ConstantsDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantsDefine.h; sourceTree = "<group>"; };
 		E96CBBE31E441C89006A0171 /* Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Record.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96CBBE71E441C89006A0171 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E96CBBE91E441C89006A0171 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 				E9480AEB1E459E4100977A21 /* R_Utils.m */,
 				E9480AFC1E45B3B500977A21 /* UITools.h */,
 				E9480AFD1E45B3B500977A21 /* UITools.m */,
+				E94B45221E47059B0082E90E /* ConstantsDefine.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

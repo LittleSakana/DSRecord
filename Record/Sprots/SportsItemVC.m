@@ -131,6 +131,7 @@
         if (indexPath.row < self.arrSource.count) {
             SportsItem *item = [self.arrSource objectAtIndex:indexPath.row];
             [self.delegate selectSportsItem:item];
+            [self popVC];
         }
     }
 }

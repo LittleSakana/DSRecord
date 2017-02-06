@@ -2,7 +2,7 @@
 //  Sports+CoreDataProperties.m
 //  Record
 //
-//  Created by fengdongsheng on 17/2/3.
+//  Created by fengdongsheng on 17/2/6.
 //  Copyright © 2017年 fengdongsheng. All rights reserved.
 //
 
@@ -14,9 +14,9 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"Sports"];
 }
 
-@dynamic sports_time;
 @dynamic sports_count;
-@dynamic sports_name;
 @dynamic sports_keyword;
+@dynamic sports_name;
+@dynamic sports_time;
 
 @end

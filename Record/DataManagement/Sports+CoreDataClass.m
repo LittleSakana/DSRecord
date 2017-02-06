@@ -8,6 +8,7 @@
 
 #import "Sports+CoreDataClass.h"
 #import "DataManagement.h"
+#import "SportsItem+CoreDataClass.h"
 
 @implementation Sports
 
@@ -23,9 +24,16 @@
         
         // 创建托管对象，并指明创建的托管对象所属实体名
         Sports *emp = [NSEntityDescription insertNewObjectForEntityForName:@"Sports" inManagedObjectContext:[DataManagement sharedDataManagement].managedObjectContext];
+        
+        NSArray *arrItem = [SportsItem searchSportsWithKeyword:keyword];
+        if (arrItem && arrItem.count == 1) {
+            SportsItem *item = [arrItem firstObject];
+            emp.sports_name = item.name;
+        }else{
+            return NO;
+        }
         emp.sports_count = count;
         emp.sports_keyword = keyword;
-        emp.sports_name = @"深蹲";
         emp.sports_time = time;
     }
     
@@ -91,7 +99,10 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Sports"];
     
     // 创建谓词对象，过滤出符合要求的对象，也就是要删除的对象
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sports_time = %@ & sports_keyword = %@", time,keyword];
+    NSMutableArray *preDicateArr = [NSMutableArray array];
+    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_time = %@",time]];
+    [preDicateArr addObject:[NSPredicate predicateWithFormat:@"sports_keyword = %@",keyword]];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preDicateArr];
     request.predicate = predicate;
     
     // 执行获取操作，找到要删除的对象

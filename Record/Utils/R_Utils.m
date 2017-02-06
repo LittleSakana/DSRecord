@@ -11,8 +11,11 @@
 
 @implementation R_Utils
 
-+ (NSString*)getShortStringDate{
-    return [[[NSDate date] stringWithISOFormat] substringToIndex:9];
++ (NSString*)getShortStringDate:(NSDate*)date{
+    if (!date) {
+        date = [NSDate date];
+    }
+    return [[date stringWithISOFormat] substringToIndex:10];
 }
 
 + (void)hideExtraCellLine:(UITableView *)tableView{
