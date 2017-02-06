@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray*)searchSportsWithName:(NSString*)name;
 
-+ (NSArray*)searchSportsWithKeyword:(NSString*)keyword;
++ (NSArray*)searchSportsWithKeyword:(NSString* _Nullable)keyword;
 
-+ (BOOL)deleteObjectKeyword:(NSString*)keyword;
++ (BOOL)deleteObjectKeyword:(NSString* _Nonnull)keyword;
 
 + (BOOL)addObjectWithKeyword:(NSString*)keyword andName:(NSString*)name;
 

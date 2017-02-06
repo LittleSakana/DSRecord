@@ -10,6 +10,7 @@
 #define ConstantsDefine_h
 
 #define Color_blue                      @"007aff"
+#define Color_devideLine                @"f5f5f5"
 
 #endif /* ConstantsDefine_h */
 
