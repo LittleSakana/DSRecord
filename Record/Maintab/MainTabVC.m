@@ -10,12 +10,14 @@
 #import "HomeVC.h"
 #import "SportsVC.h"
 #import "ForeignLanguageVC.h"
+#import "SettingVC.h"
 
 @interface MainTabVC ()
 
 @property (nonatomic, strong) HomeVC                *vcHome;
 @property (nonatomic, strong) SportsVC              *vcSports;
 @property (nonatomic, strong) ForeignLanguageVC     *vcForeignLanguage;
+@property (nonatomic, strong) SettingVC             *vcSetting;
 
 @end
 
@@ -47,7 +49,12 @@
     navigaitonForeignLanguage.tabBarItem.title = @"Language";
     navigaitonForeignLanguage.tabBarItem.image = [UIImage imageNamed:@"language"];
     
-    self.viewControllers = @[navigaitonHome,navigaitonSports,navigaitonForeignLanguage];
+    _vcSetting = [[SettingVC alloc] init];
+    UINavigationController *navigaiton4 = [[UINavigationController alloc] initWithRootViewController:_vcSetting];
+    navigaiton4.tabBarItem.title = @"Settings";
+    navigaiton4.tabBarItem.image = [UIImage imageNamed:@"setting"];
+    
+    self.viewControllers = @[navigaitonHome,navigaitonSports,navigaitonForeignLanguage,navigaiton4];
 }
 
 @end
