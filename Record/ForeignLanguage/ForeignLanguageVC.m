@@ -90,7 +90,7 @@
 }
 
 - (void)initRightNavigationBarItem{
-    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSportRecord)];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLanguageRecord)];
     [self.navigationItem setRightBarButtonItem:rightBtnItem];
 }
 
@@ -168,7 +168,7 @@
 
 #pragma mark - 按钮点击事件
 
-- (void)addSportRecord{
+- (void)addLanguageRecord{
     LanguageRecordAddVC *vcAdd = [LanguageRecordAddVC new];
     [self dsPushViewController:vcAdd animated:YES];
 }

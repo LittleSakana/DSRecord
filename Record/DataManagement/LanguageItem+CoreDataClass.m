@@ -11,6 +11,16 @@
 
 @implementation LanguageItem
 
++ (LanguageItem*)searchItemByWithKeyword:(NSString*)keyword{
+    NSArray *arrItem = [LanguageItem searchLanguageItemWithKeyword:keyword];
+    if (arrItem && arrItem.count == 1) {
+        LanguageItem *item = [arrItem firstObject];
+        return item;
+    }else{
+        return nil;
+    }
+}
+
 + (BOOL)addObjectWithKeyword:(NSString*)keyword andName:(NSString*)name{
     
     // 先执行查询操作，如果已存在则执行更新操作

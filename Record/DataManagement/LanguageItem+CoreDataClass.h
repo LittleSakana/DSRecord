@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LanguageItem : NSManagedObject
 
++ (LanguageItem*)searchItemByWithKeyword:(NSString*)keyword;
+
 + (NSArray*)searchLanguageItemWithName:(NSString*)name;
 
 + (NSArray*)searchLanguageItemWithKeyword:(NSString* _Nullable)keyword;

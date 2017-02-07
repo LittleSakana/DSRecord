@@ -11,6 +11,14 @@
 
 @implementation SportsItem
 
++ (SportsItem*)searchItemByWithKeyword:(NSString*)keyword{
+    NSArray *arrTemp = [self searchSportsWithKeyword:keyword];
+    if (arrTemp && arrTemp.count > 0) {
+        return [arrTemp firstObject];
+    }
+    return nil;
+}
+
 + (BOOL)addObjectWithKeyword:(NSString*)keyword andName:(NSString*)name{
     
     // 先执行查询操作，如果已存在则执行更新操作

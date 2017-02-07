@@ -39,6 +39,7 @@
 #pragma mark - 初始化页面
 - (void)initPage{
     self.navigationItem.title = [NSString stringWithFormat:@"%@记录",self.itemName];
+    [self initRightNavigationBarItem];
         
     _tbvMain = [UITools createTableViewWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain delegate:self];
     self.tbvMain.backgroundColor = [UIColor clearColor];
@@ -47,6 +48,11 @@
     self.tbvMain.dataSource = self;
     [R_Utils hideExtraCellLine:self.tbvMain];
     [self.view addSubview:self.tbvMain];
+}
+
+- (void)initRightNavigationBarItem{
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSportRecord)];
+    [self.navigationItem setRightBarButtonItem:rightBtnItem];
 }
 
 #pragma mark - 初始化数据
@@ -61,6 +67,12 @@
 }
 
 #pragma mark - 按钮点击事件
+
+- (void)addSportRecord{
+    SportsAddVC *vcAdd = [SportsAddVC new];
+    vcAdd.sportsType = [SportsItem searchItemByWithKeyword:self.keyword];
+    [self dsPushViewController:vcAdd animated:YES];
+}
 
 #pragma mark - 网络请求
 
