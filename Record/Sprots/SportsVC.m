@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIScrollView          *scrollMain;
 @property (nonatomic, strong) UILabel               *lblTime;
 @property (nonatomic, strong) NSMutableArray        *arrData;
+@property (nonatomic, strong) NSDate                *currentDate;
 @property (nonatomic, copy  ) NSString              *strSearchTime;
 
 @end
@@ -61,9 +62,31 @@
                                            textColor:[UIColor colorWithHexString:Color_blue]
                                        textAlignment:NSTextAlignmentCenter
                                            SuperView:self.view];
+    self.lblTime.userInteractionEnabled = YES;
+    UIButton *btnLeft = [UITools createButtonWithFrame:CGRectMake(13, 0, 80, self.lblTime.height)
+                                                    title:@""
+                                                 setImage:@"leftArrow"
+                                                 setBgImg:nil
+                                                     font:nil
+                                               titleColor:nil
+                                          backgroundColor:[UIColor clearColor]
+                                             SuperView:self.lblTime];
+    [btnLeft setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [btnLeft addTarget:self action:@selector(clickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *btnRight = [UITools createButtonWithFrame:CGRectMake(YYScreenSize().width - 13 - btnLeft.width, 0, btnLeft.width, self.lblTime.height)
+                                                 title:@""
+                                              setImage:@"rightArrow"
+                                              setBgImg:nil
+                                                  font:nil
+                                            titleColor:nil
+                                       backgroundColor:[UIColor clearColor]
+                                             SuperView:self.lblTime];
+    
+    [btnRight setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    [btnRight addTarget:self action:@selector(clickRightBtn) forControlEvents:UIControlEventTouchUpInside];
     
     //统计数据
-    _scrollMain = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.lblTime.bottom, YYScreenSize().width, self.view.height - self.lblTime.bottom - 49)];
+    _scrollMain = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.lblTime.bottom, YYScreenSize().width, YYScreenSize().height - self.lblTime.bottom - 49 - 64)];
     [self.view addSubview:self.scrollMain];
 }
 
@@ -94,11 +117,17 @@
         vBg.userInteractionEnabled = YES;
         __weak SportsVC *weakSelf = self;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-            SportsRecordListVC *vc = [SportsRecordListVC new];
-            vc.keyword = item.keyword;
-            vc.time = weakSelf.strSearchTime;
-            vc.itemName = item.name;
-            [weakSelf dsPushViewController:vc animated:YES];
+            if (arrRecord && arrRecord.count > 0) {
+                SportsRecordListVC *vc = [SportsRecordListVC new];
+                vc.keyword = item.keyword;
+                vc.time = weakSelf.strSearchTime;
+                vc.itemName = item.name;
+                [weakSelf dsPushViewController:vc animated:YES];
+            }else{
+                SportsAddVC *vc = [SportsAddVC new];
+                vc.sportsType = item;
+                [weakSelf dsPushViewController:vc animated:YES];
+            }
         }];
         [vBg addGestureRecognizer:tapGesture];
         
@@ -128,13 +157,14 @@
                      backgroundColor:[UIColor colorWithHexString:Color_devideLine]
                            superView:vBg];
     }
-    self.scrollMain.contentSize = CGSizeMake(self.scrollMain.width, y);
+    self.scrollMain.contentSize = CGSizeMake(self.scrollMain.width, self.arrData.count%n > 0 ? y + itemHeight + padding : y);
 }
 
 #pragma mark - 初始化数据
 - (void)initData{
     _arrData = [NSMutableArray array];
-    self.strSearchTime = [R_Utils getShortStringDate:nil];
+    self.currentDate = [NSDate date];
+    self.strSearchTime = [R_Utils getShortStringDate:self.currentDate];
 }
 
 #pragma mark - 按钮点击事件
@@ -145,12 +175,46 @@
 }
 
 - (void)segmentedValueChanged:(UISegmentedControl*)segControl{
-    self.strSearchTime = [R_Utils getShortStringDate:nil];
-    if (segControl.selectedSegmentIndex == 0) {
-        
-    }else if (segControl.selectedSegmentIndex == 1) {
+    [self calculateDateWithSegmentIndex:segControl.selectedSegmentIndex andIsAdd:0];
+}
+
+- (void)clickLeftBtn{
+    [self calculateDateWithSegmentIndex:self.segDate.selectedSegmentIndex andIsAdd:-1];
+    
+}
+
+- (void)clickRightBtn{
+    [self calculateDateWithSegmentIndex:self.segDate.selectedSegmentIndex andIsAdd:1];
+}
+
+- (void)calculateDateWithSegmentIndex:(NSInteger)index andIsAdd:(int)symbolic{
+    if ([self.currentDate timeIntervalSinceNow] > 0) {
+        self.currentDate = [NSDate date];
+    }
+    if (index == 0) {
+        if (symbolic > 0 && ![self.currentDate isToday]){
+            self.currentDate = [self.currentDate dateByAddingDays:1];
+        }else if (symbolic < 0){
+            self.currentDate = [self.currentDate dateByAddingDays:-1];
+        }
+    }else if (index == 1) {
+        if (symbolic > 0 && !(self.currentDate.year == [NSDate date].year && self.currentDate.month == [NSDate date].month)){
+            self.currentDate = [self.currentDate dateByAddingMonths:1];
+        }else if (symbolic < 0){
+            self.currentDate = [self.currentDate dateByAddingMonths:-1];
+        }
+    }else if (index == 2) {
+        if (symbolic > 0 && self.currentDate.year != [NSDate date].year){
+            self.currentDate = [self.currentDate dateByAddingYears:1];
+        }else if (symbolic < 0){
+            self.currentDate = [self.currentDate dateByAddingYears:-1];
+        }
+    }
+    
+    self.strSearchTime = [R_Utils getShortStringDate:self.currentDate];
+    if (index == 1) {
         self.strSearchTime = [self.strSearchTime substringToIndex:7];
-    }else if (segControl.selectedSegmentIndex == 2) {
+    }else if (index == 2) {
         self.strSearchTime = [self.strSearchTime substringToIndex:4];
     }
     self.lblTime.text = self.strSearchTime;

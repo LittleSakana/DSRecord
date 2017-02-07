@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UITextField   *tfCount;
 @property (nonatomic, strong) UIButton      *btnAdd;
 
-@property (nonatomic, strong) SportsItem    *sportsType;
 @property (nonatomic, copy  ) NSString      *strSportsTime;
 
 //日期选择
@@ -58,7 +57,7 @@
                                    textColor:[UIColor colorWithHexString:@"666666"]
                                textAlignment:NSTextAlignmentRight
                                    SuperView:vBg];
-    if (!self.sportsRecord) {
+    if (!self.sportsRecord && !self.sportsType) {
         __weak SportsAddVC *weakSelf = self;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
             SportsItemVC *vcSportsItem = [SportsItemVC new];
@@ -131,6 +130,8 @@
     if (self.sportsRecord) {
         self.lblType.text = [NSString stringWithFormat:@"%@ >",self.sportsRecord.sports_name];
         self.tfCount.text = [NSString stringWithFormat:@"%i",self.sportsRecord.sports_count];
+    }else if (self.sportsType) {
+        self.lblType.text = [NSString stringWithFormat:@"%@ >",self.sportsType.name];
     }
     
     [self initPickerView];

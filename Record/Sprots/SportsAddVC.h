@@ -8,9 +8,11 @@
 
 #import "BaseVC.h"
 #import "Sports+CoreDataClass.h"
+#import "SportsItem+CoreDataClass.h"
 
 @interface SportsAddVC : BaseVC
 
-@property (nonatomic, strong) Sports *sportsRecord;
+@property (nonatomic, strong) Sports        *sportsRecord;
+@property (nonatomic, strong) SportsItem    *sportsType;
 
 @end
