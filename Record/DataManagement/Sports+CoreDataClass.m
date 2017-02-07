@@ -100,6 +100,9 @@
     NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:preDicateArr];
     request.predicate = predicate;
     
+    NSSortDescriptor *sdSortDate = [NSSortDescriptor sortDescriptorWithKey:@"sports_time" ascending:NO];
+    request.sortDescriptors = @[sdSortDate];
+    
     // 执行获取操作，找到要删除的对象
     NSError *error = nil;
     NSArray *employees = [[DataManagement sharedDataManagement].managedObjectContext executeFetchRequest:request error:&error];

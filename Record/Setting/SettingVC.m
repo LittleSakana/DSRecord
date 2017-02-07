@@ -35,7 +35,7 @@
 - (void)initPage{
     self.navigationItem.title = @"Settings";
     
-    _tbvMain = [UITools createTableViewWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain delegate:self];
+    _tbvMain = [UITools createTableViewWithFrame:CGRectMake(0, 0, self.view.width, YYScreenSize().height - 64 - 49) style:UITableViewStylePlain delegate:self];
     self.tbvMain.backgroundColor = [UIColor clearColor];
     self.tbvMain.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tbvMain.delegate = self;
