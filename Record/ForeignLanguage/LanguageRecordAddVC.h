@@ -7,7 +7,12 @@
 //
 
 #import "BaseVC.h"
+#import "Language+CoreDataClass.h"
+#import "LanguageItem+CoreDataClass.h"
 
 @interface LanguageRecordAddVC : BaseVC
+
+@property (nonatomic, strong) Language          *languageRecord;
+@property (nonatomic, strong) LanguageItem      *languageType;
 
 @end

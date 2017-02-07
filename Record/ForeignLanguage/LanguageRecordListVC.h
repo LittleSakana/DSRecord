@@ -10,4 +10,8 @@
 
 @interface LanguageRecordListVC : BaseVC
 
+@property (nonatomic, copy  ) NSString *keyword;
+@property (nonatomic, copy  ) NSString *time;
+@property (nonatomic, copy  ) NSString *itemName;
+
 @end
