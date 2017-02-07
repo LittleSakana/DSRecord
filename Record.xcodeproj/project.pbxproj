@@ -36,6 +36,12 @@
 		E96CBC631E446D7E006A0171 /* Run+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E96CBC5C1E446D7E006A0171 /* Run+CoreDataClass.m */; };
 		E96CBC641E446D7E006A0171 /* Run+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E96CBC5E1E446D7E006A0171 /* Run+CoreDataProperties.m */; };
 		E96CBC671E4471F0006A0171 /* DataManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = E96CBC661E4471F0006A0171 /* DataManagement.m */; };
+		E97123B01E499C1C005DE55A /* LanguageItem+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123AD1E499C1C005DE55A /* LanguageItem+CoreDataClass.m */; };
+		E97123B11E499C1C005DE55A /* LanguageItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123AF1E499C1C005DE55A /* LanguageItem+CoreDataProperties.m */; };
+		E97123B41E49A27A005DE55A /* LanguageRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123B31E49A27A005DE55A /* LanguageRecordListVC.m */; };
+		E97123B71E49A294005DE55A /* LanguageItemListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123B61E49A294005DE55A /* LanguageItemListVC.m */; };
+		E97123BA1E49A2B9005DE55A /* LanguageItemAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123B91E49A2B9005DE55A /* LanguageItemAddVC.m */; };
+		E97123BD1E49A2DA005DE55A /* LanguageRecordAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E97123BC1E49A2DA005DE55A /* LanguageRecordAddVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +123,19 @@
 		E96CBC5E1E446D7E006A0171 /* Run+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Run+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E96CBC651E4471F0006A0171 /* DataManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManagement.h; sourceTree = "<group>"; };
 		E96CBC661E4471F0006A0171 /* DataManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManagement.m; sourceTree = "<group>"; };
+		E97123AC1E499C1C005DE55A /* LanguageItem+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LanguageItem+CoreDataClass.h"; sourceTree = "<group>"; };
+		E97123AD1E499C1C005DE55A /* LanguageItem+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LanguageItem+CoreDataClass.m"; sourceTree = "<group>"; };
+		E97123AE1E499C1C005DE55A /* LanguageItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LanguageItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E97123AF1E499C1C005DE55A /* LanguageItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LanguageItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E97123B21E49A27A005DE55A /* LanguageRecordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageRecordListVC.h; sourceTree = "<group>"; };
+		E97123B31E49A27A005DE55A /* LanguageRecordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageRecordListVC.m; sourceTree = "<group>"; };
+		E97123B51E49A294005DE55A /* LanguageItemListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageItemListVC.h; sourceTree = "<group>"; };
+		E97123B61E49A294005DE55A /* LanguageItemListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageItemListVC.m; sourceTree = "<group>"; };
+		E97123B81E49A2B9005DE55A /* LanguageItemAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageItemAddVC.h; sourceTree = "<group>"; };
+		E97123B91E49A2B9005DE55A /* LanguageItemAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageItemAddVC.m; sourceTree = "<group>"; };
+		E97123BB1E49A2DA005DE55A /* LanguageRecordAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageRecordAddVC.h; sourceTree = "<group>"; };
+		E97123BC1E49A2DA005DE55A /* LanguageRecordAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageRecordAddVC.m; sourceTree = "<group>"; };
+		E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model2.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +304,14 @@
 			children = (
 				E96CBC2D1E44258B006A0171 /* ForeignLanguageVC.h */,
 				E96CBC2E1E44258B006A0171 /* ForeignLanguageVC.m */,
+				E97123B81E49A2B9005DE55A /* LanguageItemAddVC.h */,
+				E97123B91E49A2B9005DE55A /* LanguageItemAddVC.m */,
+				E97123B51E49A294005DE55A /* LanguageItemListVC.h */,
+				E97123B61E49A294005DE55A /* LanguageItemListVC.m */,
+				E97123BB1E49A2DA005DE55A /* LanguageRecordAddVC.h */,
+				E97123BC1E49A2DA005DE55A /* LanguageRecordAddVC.m */,
+				E97123B21E49A27A005DE55A /* LanguageRecordListVC.h */,
+				E97123B31E49A27A005DE55A /* LanguageRecordListVC.m */,
 			);
 			path = ForeignLanguage;
 			sourceTree = "<group>";
@@ -309,25 +336,29 @@
 		E96CBC301E4458D3006A0171 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
-				E9480AED1E45A86E00977A21 /* SportsItem+CoreDataClass.h */,
-				E9480AEE1E45A86E00977A21 /* SportsItem+CoreDataClass.m */,
-				E9480AEF1E45A86E00977A21 /* SportsItem+CoreDataProperties.h */,
-				E9480AF01E45A86E00977A21 /* SportsItem+CoreDataProperties.m */,
-				E96CBC531E446D7E006A0171 /* Sports+CoreDataClass.h */,
-				E96CBC541E446D7E006A0171 /* Sports+CoreDataClass.m */,
-				E96CBC551E446D7E006A0171 /* Sports+CoreDataProperties.h */,
-				E96CBC561E446D7E006A0171 /* Sports+CoreDataProperties.m */,
+				E96CBC651E4471F0006A0171 /* DataManagement.h */,
+				E96CBC661E4471F0006A0171 /* DataManagement.m */,
 				E96CBC571E446D7E006A0171 /* Language+CoreDataClass.h */,
 				E96CBC581E446D7E006A0171 /* Language+CoreDataClass.m */,
 				E96CBC591E446D7E006A0171 /* Language+CoreDataProperties.h */,
 				E96CBC5A1E446D7E006A0171 /* Language+CoreDataProperties.m */,
+				E97123AC1E499C1C005DE55A /* LanguageItem+CoreDataClass.h */,
+				E97123AD1E499C1C005DE55A /* LanguageItem+CoreDataClass.m */,
+				E97123AE1E499C1C005DE55A /* LanguageItem+CoreDataProperties.h */,
+				E97123AF1E499C1C005DE55A /* LanguageItem+CoreDataProperties.m */,
+				E96CBC311E445C18006A0171 /* Model.xcdatamodeld */,
 				E96CBC5B1E446D7E006A0171 /* Run+CoreDataClass.h */,
 				E96CBC5C1E446D7E006A0171 /* Run+CoreDataClass.m */,
 				E96CBC5D1E446D7E006A0171 /* Run+CoreDataProperties.h */,
 				E96CBC5E1E446D7E006A0171 /* Run+CoreDataProperties.m */,
-				E96CBC311E445C18006A0171 /* Model.xcdatamodeld */,
-				E96CBC651E4471F0006A0171 /* DataManagement.h */,
-				E96CBC661E4471F0006A0171 /* DataManagement.m */,
+				E96CBC531E446D7E006A0171 /* Sports+CoreDataClass.h */,
+				E96CBC541E446D7E006A0171 /* Sports+CoreDataClass.m */,
+				E96CBC551E446D7E006A0171 /* Sports+CoreDataProperties.h */,
+				E96CBC561E446D7E006A0171 /* Sports+CoreDataProperties.m */,
+				E9480AED1E45A86E00977A21 /* SportsItem+CoreDataClass.h */,
+				E9480AEE1E45A86E00977A21 /* SportsItem+CoreDataClass.m */,
+				E9480AEF1E45A86E00977A21 /* SportsItem+CoreDataProperties.h */,
+				E9480AF01E45A86E00977A21 /* SportsItem+CoreDataProperties.m */,
 			);
 			path = DataManagement;
 			sourceTree = "<group>";
@@ -526,6 +557,7 @@
 				E96CBC241E44232C006A0171 /* HomeVC.m in Sources */,
 				E96CBC641E446D7E006A0171 /* Run+CoreDataProperties.m in Sources */,
 				E96CBC271E44235A006A0171 /* MainTabVC.m in Sources */,
+				E97123B71E49A294005DE55A /* LanguageItemListVC.m in Sources */,
 				E9480AFB1E45B2A700977A21 /* SportsItemAddVC.m in Sources */,
 				E96CBC331E445C18006A0171 /* Model.xcdatamodeld in Sources */,
 				E9480AEC1E459E4100977A21 /* R_Utils.m in Sources */,
@@ -533,15 +565,20 @@
 				E96CBC631E446D7E006A0171 /* Run+CoreDataClass.m in Sources */,
 				E96CBC2C1E442551006A0171 /* SportsVC.m in Sources */,
 				E9077D541E48963400025418 /* SettingVC.m in Sources */,
+				E97123BD1E49A2DA005DE55A /* LanguageRecordAddVC.m in Sources */,
 				E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */,
 				E96CBBEB1E441C89006A0171 /* AppDelegate.m in Sources */,
 				E9480AF21E45A86E00977A21 /* SportsItem+CoreDataProperties.m in Sources */,
 				E96CBC5F1E446D7E006A0171 /* Sports+CoreDataClass.m in Sources */,
 				E96CBC601E446D7E006A0171 /* Sports+CoreDataProperties.m in Sources */,
+				E97123B01E499C1C005DE55A /* LanguageItem+CoreDataClass.m in Sources */,
 				E9480AF11E45A86E00977A21 /* SportsItem+CoreDataClass.m in Sources */,
 				E9480AF51E45B0C400977A21 /* SportsAddVC.m in Sources */,
+				E97123B41E49A27A005DE55A /* LanguageRecordListVC.m in Sources */,
+				E97123BA1E49A2B9005DE55A /* LanguageItemAddVC.m in Sources */,
 				E96CBBE81E441C89006A0171 /* main.m in Sources */,
 				E96CBC671E4471F0006A0171 /* DataManagement.m in Sources */,
+				E97123B11E499C1C005DE55A /* LanguageItem+CoreDataProperties.m in Sources */,
 				E96CBC621E446D7E006A0171 /* Language+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,9 +839,10 @@
 		E96CBC311E445C18006A0171 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */,
 				E96CBC321E445C18006A0171 /* Model.xcdatamodel */,
 			);
-			currentVersion = E96CBC321E445C18006A0171 /* Model.xcdatamodel */;
+			currentVersion = E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

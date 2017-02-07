@@ -2,7 +2,7 @@
 //  Run+CoreDataProperties.h
 //  Record
 //
-//  Created by fengdongsheng on 17/2/3.
+//  Created by fengdongsheng on 17/2/7.
 //  Copyright © 2017年 fengdongsheng. All rights reserved.
 //
 
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Run *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *run_time;
 @property (nonatomic) double run_distance;
+@property (nullable, nonatomic, copy) NSString *run_time;
 @property (nullable, nonatomic, copy) NSNumber *run_time_interval;
 
 @end

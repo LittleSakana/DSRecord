@@ -2,7 +2,7 @@
 //  Language+CoreDataProperties.m
 //  Record
 //
-//  Created by fengdongsheng on 17/2/3.
+//  Created by fengdongsheng on 17/2/7.
 //  Copyright © 2017年 fengdongsheng. All rights reserved.
 //
 
@@ -14,9 +14,9 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"Language"];
 }
 
-@dynamic language_time;
 @dynamic language_count;
-@dynamic language_name;
 @dynamic language_keyword;
+@dynamic language_name;
+@dynamic language_time;
 
 @end

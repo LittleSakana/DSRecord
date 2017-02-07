@@ -2,7 +2,7 @@
 //  Sports+CoreDataProperties.m
 //  Record
 //
-//  Created by fengdongsheng on 17/2/6.
+//  Created by fengdongsheng on 17/2/7.
 //  Copyright © 2017年 fengdongsheng. All rights reserved.
 //
 

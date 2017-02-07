@@ -42,7 +42,12 @@
     // 创建并关联SQLite数据库文件，如果已经存在则不会重复创建
     NSString *dataPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite", @"Model"];
-    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:nil error:nil];
+    
+    // 设置版本迁移方案
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES};
+    // 创建持久化存储协调器，并将迁移方案的字典当做参数传入
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:options error:nil];
     
     // 上下文对象设置属性为持久化存储器
     self.managedObjectContext.persistentStoreCoordinator = coordinator;

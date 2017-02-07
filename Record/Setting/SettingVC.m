@@ -8,6 +8,7 @@
 
 #import "SettingVC.h"
 #import "SportsItemVC.h"
+#import "LanguageItemListVC.h"
 
 @interface SettingVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -87,7 +88,8 @@
             SportsItemVC *vc = [SportsItemVC new];
             [self dsPushViewController:vc animated:YES];
         }else if ([item[@"value"] isEqualToString:@"language"]) {
-        
+            LanguageItemListVC *vc = [LanguageItemListVC new];
+            [self dsPushViewController:vc animated:YES];
         }
     }
 }

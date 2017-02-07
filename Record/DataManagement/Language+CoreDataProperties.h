@@ -2,7 +2,7 @@
 //  Language+CoreDataProperties.h
 //  Record
 //
-//  Created by fengdongsheng on 17/2/3.
+//  Created by fengdongsheng on 17/2/7.
 //  Copyright © 2017年 fengdongsheng. All rights reserved.
 //
 
@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Language *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *language_time;
 @property (nonatomic) int16_t language_count;
-@property (nullable, nonatomic, copy) NSString *language_name;
 @property (nullable, nonatomic, copy) NSString *language_keyword;
+@property (nullable, nonatomic, copy) NSString *language_name;
+@property (nullable, nonatomic, copy) NSString *language_time;
 
 @end
 
