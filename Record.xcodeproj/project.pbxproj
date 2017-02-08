@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		638986DDFE781E740FBA445A /* libPods-Record.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */; };
+		E90486621E49FB04007A38B5 /* RunRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E90486611E49FB04007A38B5 /* RunRecordListVC.m */; };
+		E90486651E49FB1A007A38B5 /* RunRecordAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E90486641E49FB1A007A38B5 /* RunRecordAddVC.m */; };
 		E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9077D4F1E48788900025418 /* SportsRecordListVC.m */; };
 		E9077D541E48963400025418 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9077D531E48963400025418 /* SettingVC.m */; };
 		E9480AE81E456CCD00977A21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9480AE71E456CCD00977A21 /* LaunchScreen.storyboard */; };
@@ -65,6 +67,10 @@
 		16DD218C103556F34CFA59E5 /* Pods-Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.release.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.release.xcconfig"; sourceTree = "<group>"; };
 		1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Record.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB30D94857F71693411EA79 /* Pods-Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.debug.xcconfig"; sourceTree = "<group>"; };
+		E90486601E49FB04007A38B5 /* RunRecordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunRecordListVC.h; sourceTree = "<group>"; };
+		E90486611E49FB04007A38B5 /* RunRecordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunRecordListVC.m; sourceTree = "<group>"; };
+		E90486631E49FB1A007A38B5 /* RunRecordAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunRecordAddVC.h; sourceTree = "<group>"; };
+		E90486641E49FB1A007A38B5 /* RunRecordAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunRecordAddVC.m; sourceTree = "<group>"; };
 		E9077D4E1E48788900025418 /* SportsRecordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsRecordListVC.h; sourceTree = "<group>"; };
 		E9077D4F1E48788900025418 /* SportsRecordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsRecordListVC.m; sourceTree = "<group>"; };
 		E9077D521E48963400025418 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
@@ -179,6 +185,17 @@
 				16DD218C103556F34CFA59E5 /* Pods-Record.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E904865F1E49FAEC007A38B5 /* RunRecord */ = {
+			isa = PBXGroup;
+			children = (
+				E90486631E49FB1A007A38B5 /* RunRecordAddVC.h */,
+				E90486641E49FB1A007A38B5 /* RunRecordAddVC.m */,
+				E90486601E49FB04007A38B5 /* RunRecordListVC.h */,
+				E90486611E49FB04007A38B5 /* RunRecordListVC.m */,
+			);
+			path = RunRecord;
 			sourceTree = "<group>";
 		};
 		E9077D511E48962000025418 /* Setting */ = {
@@ -319,6 +336,7 @@
 		E96CBC291E442531006A0171 /* Sprots */ = {
 			isa = PBXGroup;
 			children = (
+				E904865F1E49FAEC007A38B5 /* RunRecord */,
 				E96CBC2A1E442551006A0171 /* SportsVC.h */,
 				E96CBC2B1E442551006A0171 /* SportsVC.m */,
 				E9480AF31E45B0C400977A21 /* SportsAddVC.h */,
@@ -551,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9480AF81E45B13300977A21 /* SportsItemVC.m in Sources */,
+				E90486651E49FB1A007A38B5 /* RunRecordAddVC.m in Sources */,
 				E9480AFE1E45B3B500977A21 /* UITools.m in Sources */,
 				E96CBC611E446D7E006A0171 /* Language+CoreDataClass.m in Sources */,
 				E96CBC211E44225B006A0171 /* BaseVC.m in Sources */,
@@ -576,6 +595,7 @@
 				E9480AF51E45B0C400977A21 /* SportsAddVC.m in Sources */,
 				E97123B41E49A27A005DE55A /* LanguageRecordListVC.m in Sources */,
 				E97123BA1E49A2B9005DE55A /* LanguageItemAddVC.m in Sources */,
+				E90486621E49FB04007A38B5 /* RunRecordListVC.m in Sources */,
 				E96CBBE81E441C89006A0171 /* main.m in Sources */,
 				E96CBC671E4471F0006A0171 /* DataManagement.m in Sources */,
 				E97123B11E499C1C005DE55A /* LanguageItem+CoreDataProperties.m in Sources */,

@@ -12,6 +12,7 @@
 #import "SportsAddVC.h"
 #import "SportsRecordListVC.h"
 #import "SportsItem+CoreDataClass.h"
+#import "RunRecordListVC.h"
 
 @interface SportsVC ()
 
@@ -170,8 +171,11 @@
 #pragma mark - 按钮点击事件
 
 - (void)addSportRecord{
-    SportsAddVC *vcAdd = [SportsAddVC new];
-    [self dsPushViewController:vcAdd animated:YES];
+//    SportsAddVC *vcAdd = [SportsAddVC new];
+//    [self dsPushViewController:vcAdd animated:YES];
+    RunRecordListVC *vc = [RunRecordListVC new];
+    vc.time = self.strSearchTime;
+    [self dsPushViewController:vc animated:YES];
 }
 
 - (void)segmentedValueChanged:(UISegmentedControl*)segControl{

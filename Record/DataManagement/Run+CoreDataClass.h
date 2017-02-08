@@ -13,6 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Run : NSManagedObject
 
++ (BOOL)addObjectWithTime:(NSString*)time andTimeInterval:(NSNumber*)timeInterval andDistance:(CGFloat)distance;
+
++ (BOOL)deleteObjectWithTime:(NSString*)time;
+
++ (BOOL)modifyObejectByTime:(NSString*)time andSports:(Run*)runRecord;
+
++ (NSArray*)searchRunRecordWithTime:(NSString*)time;
+
 @end
 
 NS_ASSUME_NONNULL_END
