@@ -107,6 +107,12 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < self.arrSource.count) {
+        SportsItem *item = [self.arrSource objectAtIndex:indexPath.row];
+        if ([item.keyword isEqualToString:@"sportsItem4093"]) {
+            return UITableViewCellEditingStyleNone;
+        }
+    }
     return UITableViewCellEditingStyleDelete;
 }
 
@@ -140,6 +146,9 @@
     SportsItemAddVC *vcSportsItemAdd = [SportsItemAddVC new];
     if (indexPath.row < self.arrSource.count) {
         SportsItem *item = [self.arrSource objectAtIndex:indexPath.row];
+        if ([item.keyword isEqualToString:@"sportsItem4093"]) {
+            return;
+        }
         vcSportsItemAdd.strKeyword = item.keyword;
     }
     [self dsPushViewController:vcSportsItemAdd animated:YES];

@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MainTabVC.h"
+#import "Sports+CoreDataClass.h"
+#import "HealthManagement.h"
+#import "SportsItem+CoreDataClass.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [SportsItem addObjectWithKeyword:@"sportsItem4093" andName:@"步数"];
     MainTabVC *vcMainTab = [[MainTabVC alloc] init];
     self.window.rootViewController = vcMainTab;
     [self.window makeKeyAndVisible];
@@ -46,6 +50,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[HealthManagement shareInstance] authorizeHealthKit:^(BOOL success, NSError *error) {
+        if (success) {
+            [[HealthManagement shareInstance] getStepCount:^(double value, NSError *error) {
+                [Sports addObjectWithTime:[R_Utils getShortStringDate:nil] andKeyword:@"sportsItem4093" andCount:value];
+            }];
+        }
+    }];
 }
 
 

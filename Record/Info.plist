@@ -12,6 +12,10 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Record要访问您的健康数据用于记录步数，是否允许</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Record要更新您的健康数据</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -27,6 +31,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>healthkit</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
