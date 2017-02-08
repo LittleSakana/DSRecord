@@ -12,7 +12,9 @@
 #import "SportsAddVC.h"
 #import "SportsRecordListVC.h"
 #import "SportsItem+CoreDataClass.h"
+#import "Run+CoreDataClass.h"
 #import "RunRecordListVC.h"
+#import "RunRecordAddVC.h"
 
 @interface SportsVC ()
 
@@ -158,7 +160,74 @@
                      backgroundColor:[UIColor colorWithHexString:Color_devideLine]
                            superView:vBg];
     }
-    self.scrollMain.contentSize = CGSizeMake(self.scrollMain.width, self.arrData.count%n > 0 ? y + itemHeight + padding : y);
+    
+    //跑步记录
+    NSArray *arrRunRecord = [Run searchRunRecordWithTime:self.strSearchTime];
+    int64_t countAllTime = 0;
+    CGFloat countAllDistance = 0;
+    for (Run *record in arrRunRecord) {
+        countAllTime += [record.run_time_interval intValue];
+        countAllDistance += record.run_distance;
+    }
+    UIView *vBg = [UITools createViewWithFrame:CGRectMake(x, y, itemWidth, itemHeight)
+                               backgroundColor:[UIColor whiteColor]
+                                     superView:self.scrollMain];
+    vBg.tag = self.arrData.count;
+    vBg.userInteractionEnabled = YES;
+    __weak SportsVC *weakSelf = self;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        if (arrRunRecord && arrRunRecord.count > 0) {
+            RunRecordListVC *vc = [RunRecordListVC new];
+            vc.time = weakSelf.strSearchTime;
+            [weakSelf dsPushViewController:vc animated:YES];
+        }else{
+            RunRecordAddVC *vc = [RunRecordAddVC new];
+            [weakSelf dsPushViewController:vc animated:YES];
+        }
+    }];
+    [vBg addGestureRecognizer:tapGesture];
+    
+//    if (x + itemWidth + padding >= self.scrollMain.width) {
+//        x = padding;
+//    }else{
+//        x = x + itemWidth + padding;
+//    }
+//    if (self.arrData.count/n > 0 && self.arrData.count%n == 0) {
+//        y = y + itemHeight + padding;
+//    }
+    UILabel *lblDistanceCount = [UITools createLabelWithFrame:CGRectMake(0, 0, vBg.width, (vBg.height - 40)/2)
+                                                 text:@""
+                                                 font:[UIFont boldSystemFontOfSize:20]
+                                            textColor:[UIColor colorWithHexString:Color_blue]
+                                        textAlignment:NSTextAlignmentCenter
+                                                    SuperView:vBg];
+    UILabel *lblTimeCount = [UITools createLabelWithFrame:CGRectMake(0, lblDistanceCount.bottom, lblDistanceCount.width, lblDistanceCount.height)
+                                                         text:@""
+                                                         font:[UIFont boldSystemFontOfSize:20]
+                                                    textColor:[UIColor colorWithHexString:Color_blue]
+                                                textAlignment:NSTextAlignmentCenter
+                                                    SuperView:vBg];
+    [UITools createLabelWithFrame:CGRectMake(0, lblTimeCount.bottom, vBg.width, 40)
+                                                text:@"跑步"
+                                                font:[UIFont systemFontOfSize:15]
+                                           textColor:[UIColor colorWithHexString:@"333333"]
+                                       textAlignment:NSTextAlignmentCenter
+                                           SuperView:vBg];
+    NSString *strDistance = [NSString stringWithFormat:@"%.2fKM",countAllDistance];
+    NSMutableAttributedString *strAtt = [[NSMutableAttributedString alloc] initWithString:strDistance];
+    [strAtt addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:11] range:NSMakeRange(strDistance.length - 2, 2)];
+    [strAtt addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"666666"] range:NSMakeRange(strDistance.length - 2, 2)];
+    lblDistanceCount.attributedText = strAtt;
+    NSString *strTime = [NSString stringWithFormat:@"%lld分钟",countAllTime];
+    NSMutableAttributedString *strAtt1 = [[NSMutableAttributedString alloc] initWithString:strTime];
+    [strAtt1 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:11] range:NSMakeRange(strTime.length - 2, 2)];
+    [strAtt1 addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"666666"] range:NSMakeRange(strTime.length - 2, 2)];
+    lblTimeCount.attributedText = strAtt1;
+    [UITools createViewWithFrame:CGRectMake(0, lblTimeCount.bottom, vBg.width, 1)
+                 backgroundColor:[UIColor colorWithHexString:Color_devideLine]
+                       superView:vBg];
+    
+    self.scrollMain.contentSize = CGSizeMake(self.scrollMain.width, (self.arrData.count + 1)%n > 0 ? y + itemHeight + padding : y);
 }
 
 #pragma mark - 初始化数据
@@ -171,11 +240,8 @@
 #pragma mark - 按钮点击事件
 
 - (void)addSportRecord{
-//    SportsAddVC *vcAdd = [SportsAddVC new];
-//    [self dsPushViewController:vcAdd animated:YES];
-    RunRecordListVC *vc = [RunRecordListVC new];
-    vc.time = self.strSearchTime;
-    [self dsPushViewController:vc animated:YES];
+    SportsAddVC *vcAdd = [SportsAddVC new];
+    [self dsPushViewController:vcAdd animated:YES];
 }
 
 - (void)segmentedValueChanged:(UISegmentedControl*)segControl{

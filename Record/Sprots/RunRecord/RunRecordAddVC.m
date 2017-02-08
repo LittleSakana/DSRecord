@@ -91,7 +91,7 @@
                        superView:vBg];
     
     UILabel *lblTimeintervalTitle = [UITools createLabelWithFrame:CGRectMake(lblDistanceTitle.left, lblDistanceTitle.bottom, lblDistanceTitle.width, lblDistanceTitle.height)
-                                                         text:@"跑步时长(分钟)"
+                                                         text:@"时长(分钟)"
                                                          font:[UIFont systemFontOfSize:15]
                                                     textColor:[UIColor colorWithHexString:@"333333"]
                                                 textAlignment:NSTextAlignmentLeft
