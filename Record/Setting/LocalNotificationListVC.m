@@ -142,6 +142,7 @@
         if (flag) {
             [self.arrSource removeObject:item];
             [self.tbvMain reloadData];
+            [LocalNotification cancelNotification:item];
         }else{
             [self showMessage:@"删除提醒失败"];
         }

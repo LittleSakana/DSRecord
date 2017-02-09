@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)addObjectWithKeyword:(NSString*)keyword andTime:(NSString*)fireTime andContent:(NSString*)strContent;
 
++ (void)scheduleLocalNotifications;
+
++ (void)cancelNotification:(LocalNotification*)noti;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -95,4 +95,33 @@
     }
     return YES;
 }
+
++ (void)scheduleLocalNotifications{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    NSArray *arrTemp = [LocalNotification searchLocalNotificationWithKeyword:@""];
+    NSMutableArray *arrNotification = [NSMutableArray new];
+    for (LocalNotification *noti in arrTemp) {
+        UILocalNotification *localNotifi = [UILocalNotification new];
+        localNotifi.fireDate = [NSDate dateWithString:[[R_Utils getShortStringDate:nil] stringByAppendingFormat:@" %@",noti.fireTime]
+                                               format:@"yyyy-MM-dd HH:mm"];
+        localNotifi.repeatInterval = kCFCalendarUnitDay;
+        localNotifi.alertTitle = @"Record";
+        localNotifi.alertBody = noti.alertContent;
+        localNotifi.applicationIconBadgeNumber = 1;
+        localNotifi.userInfo = @{@"keyword":noti.keyword};
+        [arrNotification addObject:localNotifi];
+    }
+    [[UIApplication sharedApplication] setScheduledLocalNotifications:arrNotification];
+}
+
++ (void)cancelNotification:(LocalNotification*)noti{
+    NSArray *arrTemp = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *localNoti in arrTemp) {
+        NSDictionary *dict = localNoti.userInfo;
+        if ([[dict objectForKey:@"keyword"] isEqualToString:noti.keyword]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:localNoti];
+            return;
+        }
+    }
+}
 @end

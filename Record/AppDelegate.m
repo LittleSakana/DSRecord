@@ -11,6 +11,7 @@
 #import "Sports+CoreDataClass.h"
 #import "HealthManagement.h"
 #import "SportsItem+CoreDataClass.h"
+#import "LocalNotification+CoreDataClass.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +21,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SportsItem addObjectWithKeyword:@"sportsItem4093" andName:@"步数"];
+    [self registerLocalNotification];
+    application.applicationIconBadgeNumber = 1;
+    application.applicationIconBadgeNumber = 0;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [SportsItem addObjectWithKeyword:@"sportsItem4093" andName:@"步数"];
     MainTabVC *vcMainTab = [[MainTabVC alloc] init];
     self.window.rootViewController = vcMainTab;
     [self.window makeKeyAndVisible];
@@ -64,5 +68,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)registerLocalNotification{
+    // 请求用户授权
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+}
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    NSLog(@"本地通知注册成功");
+    [LocalNotification scheduleLocalNotifications];
+}
 @end

@@ -170,10 +170,26 @@
         [self showMessage:@"请填提醒内容"];
         return;
     }
-    
+    NSString *strKeyword;
+    if (self.localNotification) {
+        strKeyword = self.localNotification.keyword;
+    }else{
+        strKeyword = [self generateKeyword];
+    }
     BOOL flag = [LocalNotification addObjectWithKeyword:[self generateKeyword] andTime:self.strAlertTime andContent:[self.tfContent.text stringByTrim]];
     if (flag) {
         [self showMessage:@"保存提醒成功"];
+        if (self.localNotification) {
+            [LocalNotification cancelNotification:self.localNotification];
+        }
+        UILocalNotification *localNotifi = [UILocalNotification new];
+        localNotifi.fireDate = [NSDate dateWithString:[[R_Utils getShortStringDate:nil] stringByAppendingFormat:@" %@",self.strAlertTime]
+                                               format:@"yyyy-MM-dd HH:mm"];
+        localNotifi.repeatInterval = kCFCalendarUnitDay;
+        localNotifi.alertTitle = @"Record";
+        localNotifi.alertBody = [self.tfContent.text stringByTrim];
+        localNotifi.applicationIconBadgeNumber = 1;
+        localNotifi.userInfo = @{@"keyword":strKeyword};
         [self performSelector:@selector(popVC) withObject:nil afterDelay:1.5];
     }else{
         [self showMessage:@"保存提醒失败"];
