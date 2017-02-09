@@ -18,6 +18,13 @@
     return [[date stringWithISOFormat] substringToIndex:10];
 }
 
++ (NSString*)getShortStringTime:(NSDate*)date{
+    if (!date) {
+        date = [NSDate date];
+    }
+    return [[date stringWithISOFormat] substringWithRange:NSMakeRange(11, 5)];
+}
+
 + (void)hideExtraCellLine:(UITableView *)tableView{
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];

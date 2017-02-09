@@ -12,6 +12,8 @@
 
 + (NSString*)getShortStringDate:(NSDate*)date;
 
++ (NSString*)getShortStringTime:(NSDate*)date;
+
 + (void)hideExtraCellLine:(UITableView *)tableView;
 
 @end

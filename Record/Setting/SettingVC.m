@@ -9,6 +9,7 @@
 #import "SettingVC.h"
 #import "SportsItemVC.h"
 #import "LanguageItemListVC.h"
+#import "LocalNotificationListVC.h"
 
 @interface SettingVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -49,6 +50,7 @@
     _arrSource = [[NSMutableArray alloc] initWithCapacity:1];
     [self.arrSource addObject:@{@"name":@"Sports",@"value":@"sports"}];
     [self.arrSource addObject:@{@"name":@"Language",@"value":@"language"}];
+    [self.arrSource addObject:@{@"name":@"提醒",@"value":@"notification"}];
 }
 
 #pragma mark - 按钮点击事件
@@ -89,6 +91,9 @@
             [self dsPushViewController:vc animated:YES];
         }else if ([item[@"value"] isEqualToString:@"language"]) {
             LanguageItemListVC *vc = [LanguageItemListVC new];
+            [self dsPushViewController:vc animated:YES];
+        }else if ([item[@"value"] isEqualToString:@"notification"]) {
+            LocalNotificationListVC *vc = [LocalNotificationListVC new];
             [self dsPushViewController:vc animated:YES];
         }
     }

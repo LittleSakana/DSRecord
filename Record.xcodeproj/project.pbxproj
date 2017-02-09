@@ -22,6 +22,10 @@
 		E9480AFE1E45B3B500977A21 /* UITools.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AFD1E45B3B500977A21 /* UITools.m */; };
 		E94C6C071E4B098100055478 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C061E4B098100055478 /* HealthKit.framework */; };
 		E94C6C0B1E4B0BC300055478 /* HealthManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = E94C6C0A1E4B0BC300055478 /* HealthManagement.m */; };
+		E954FF7C1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E954FF7B1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m */; };
+		E954FF7F1E4BFFB300D1D0BA /* LocalNotificationListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E954FF7E1E4BFFB300D1D0BA /* LocalNotificationListVC.m */; };
+		E954FF851E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E954FF821E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m */; };
+		E954FF861E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E954FF841E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m */; };
 		E96CBBE81E441C89006A0171 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E96CBBE71E441C89006A0171 /* main.m */; };
 		E96CBBEB1E441C89006A0171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E96CBBEA1E441C89006A0171 /* AppDelegate.m */; };
 		E96CBBF61E441C89006A0171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96CBBF51E441C89006A0171 /* Assets.xcassets */; };
@@ -98,6 +102,15 @@
 		E94C6C081E4B098100055478 /* Record.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Record.entitlements; sourceTree = "<group>"; };
 		E94C6C091E4B0BC300055478 /* HealthManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthManagement.h; sourceTree = "<group>"; };
 		E94C6C0A1E4B0BC300055478 /* HealthManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthManagement.m; sourceTree = "<group>"; };
+		E954FF7A1E4BFEFE00D1D0BA /* AddLocalNotificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLocalNotificationVC.h; sourceTree = "<group>"; };
+		E954FF7B1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddLocalNotificationVC.m; sourceTree = "<group>"; };
+		E954FF7D1E4BFFB300D1D0BA /* LocalNotificationListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationListVC.h; sourceTree = "<group>"; };
+		E954FF7E1E4BFFB300D1D0BA /* LocalNotificationListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationListVC.m; sourceTree = "<group>"; };
+		E954FF801E4C005700D1D0BA /* Model3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model3.xcdatamodel; sourceTree = "<group>"; };
+		E954FF811E4C00E400D1D0BA /* LocalNotification+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocalNotification+CoreDataClass.h"; sourceTree = "<group>"; };
+		E954FF821E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LocalNotification+CoreDataClass.m"; sourceTree = "<group>"; };
+		E954FF831E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocalNotification+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E954FF841E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LocalNotification+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E96CBBE31E441C89006A0171 /* Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Record.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96CBBE71E441C89006A0171 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E96CBBE91E441C89006A0171 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -211,6 +224,10 @@
 			children = (
 				E9077D521E48963400025418 /* SettingVC.h */,
 				E9077D531E48963400025418 /* SettingVC.m */,
+				E954FF7A1E4BFEFE00D1D0BA /* AddLocalNotificationVC.h */,
+				E954FF7B1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m */,
+				E954FF7D1E4BFFB300D1D0BA /* LocalNotificationListVC.h */,
+				E954FF7E1E4BFFB300D1D0BA /* LocalNotificationListVC.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -375,6 +392,10 @@
 				E97123AD1E499C1C005DE55A /* LanguageItem+CoreDataClass.m */,
 				E97123AE1E499C1C005DE55A /* LanguageItem+CoreDataProperties.h */,
 				E97123AF1E499C1C005DE55A /* LanguageItem+CoreDataProperties.m */,
+				E954FF811E4C00E400D1D0BA /* LocalNotification+CoreDataClass.h */,
+				E954FF821E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m */,
+				E954FF831E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.h */,
+				E954FF841E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m */,
 				E96CBC311E445C18006A0171 /* Model.xcdatamodeld */,
 				E96CBC5B1E446D7E006A0171 /* Run+CoreDataClass.h */,
 				E96CBC5C1E446D7E006A0171 /* Run+CoreDataClass.m */,
@@ -594,6 +615,7 @@
 				E96CBC271E44235A006A0171 /* MainTabVC.m in Sources */,
 				E97123B71E49A294005DE55A /* LanguageItemListVC.m in Sources */,
 				E9480AFB1E45B2A700977A21 /* SportsItemAddVC.m in Sources */,
+				E954FF7F1E4BFFB300D1D0BA /* LocalNotificationListVC.m in Sources */,
 				E96CBC331E445C18006A0171 /* Model.xcdatamodeld in Sources */,
 				E9480AEC1E459E4100977A21 /* R_Utils.m in Sources */,
 				E96CBC2F1E44258B006A0171 /* ForeignLanguageVC.m in Sources */,
@@ -601,10 +623,12 @@
 				E96CBC2C1E442551006A0171 /* SportsVC.m in Sources */,
 				E9077D541E48963400025418 /* SettingVC.m in Sources */,
 				E97123BD1E49A2DA005DE55A /* LanguageRecordAddVC.m in Sources */,
+				E954FF861E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m in Sources */,
 				E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */,
 				E96CBBEB1E441C89006A0171 /* AppDelegate.m in Sources */,
 				E9480AF21E45A86E00977A21 /* SportsItem+CoreDataProperties.m in Sources */,
 				E96CBC5F1E446D7E006A0171 /* Sports+CoreDataClass.m in Sources */,
+				E954FF7C1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m in Sources */,
 				E96CBC601E446D7E006A0171 /* Sports+CoreDataProperties.m in Sources */,
 				E97123B01E499C1C005DE55A /* LanguageItem+CoreDataClass.m in Sources */,
 				E94C6C0B1E4B0BC300055478 /* HealthManagement.m in Sources */,
@@ -612,6 +636,7 @@
 				E9480AF51E45B0C400977A21 /* SportsAddVC.m in Sources */,
 				E97123B41E49A27A005DE55A /* LanguageRecordListVC.m in Sources */,
 				E97123BA1E49A2B9005DE55A /* LanguageItemAddVC.m in Sources */,
+				E954FF851E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m in Sources */,
 				E90486621E49FB04007A38B5 /* RunRecordListVC.m in Sources */,
 				E96CBBE81E441C89006A0171 /* main.m in Sources */,
 				E96CBC671E4471F0006A0171 /* DataManagement.m in Sources */,
@@ -878,10 +903,11 @@
 		E96CBC311E445C18006A0171 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E954FF801E4C005700D1D0BA /* Model3.xcdatamodel */,
 				E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */,
 				E96CBC321E445C18006A0171 /* Model.xcdatamodel */,
 			);
-			currentVersion = E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */;
+			currentVersion = E954FF801E4C005700D1D0BA /* Model3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

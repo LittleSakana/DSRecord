@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SportsItem : NSManagedObject
 
-+ (SportsItem*)searchItemByWithKeyword:(NSString*)keyword;
++ (SportsItem* _Nullable)searchItemByWithKeyword:(NSString*)keyword;
 
 + (NSArray*)searchSportsWithName:(NSString*)name;
 
