@@ -105,7 +105,6 @@
         localNotifi.fireDate = [NSDate dateWithString:[[R_Utils getShortStringDate:nil] stringByAppendingFormat:@" %@",noti.fireTime]
                                                format:@"yyyy-MM-dd HH:mm"];
         localNotifi.repeatInterval = kCFCalendarUnitDay;
-        localNotifi.alertTitle = @"Record";
         localNotifi.alertBody = noti.alertContent;
         localNotifi.applicationIconBadgeNumber = 1;
         localNotifi.userInfo = @{@"keyword":noti.keyword};

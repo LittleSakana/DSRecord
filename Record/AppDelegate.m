@@ -23,8 +23,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SportsItem addObjectWithKeyword:@"sportsItem4093" andName:@"步数"];
     [self registerLocalNotification];
-    application.applicationIconBadgeNumber = 1;
-    application.applicationIconBadgeNumber = 0;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     MainTabVC *vcMainTab = [[MainTabVC alloc] init];
@@ -54,6 +52,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [application setApplicationIconBadgeNumber:0];
     [[HealthManagement shareInstance] authorizeHealthKit:^(BOOL success, NSError *error) {
         if (success) {
             [[HealthManagement shareInstance] getStepCount:^(double value, NSError *error) {
