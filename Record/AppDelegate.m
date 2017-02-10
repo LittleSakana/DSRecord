@@ -55,9 +55,23 @@
     [application setApplicationIconBadgeNumber:0];
     [[HealthManagement shareInstance] authorizeHealthKit:^(BOOL success, NSError *error) {
         if (success) {
-            [[HealthManagement shareInstance] getStepCount:^(double value, NSError *error) {
-                [Sports addObjectWithTime:[R_Utils getShortStringDate:nil] andKeyword:@"sportsItem4093" andCount:value];
-            }];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                //第一次加载应用读取最近30天的步数，否则同步最近三天的数据，防止用户三天不打开应用程序导致步数丢失
+                int count = 30;
+                if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstTime"] isEqualToString:@"YES"]) {
+                    count = 3;
+                }
+                for (int i = 0; i < count; i++) {
+                    NSDate *date = [[NSDate date] dateByAddingDays:-i];
+                    [[HealthManagement shareInstance] getStepCountWithDate:date andCompletion:^(double value, NSError *error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [Sports addObjectWithTime:[R_Utils getShortStringDate:date] andKeyword:@"sportsItem4093" andCount:value];
+                        });
+                    }];
+                }
+                [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"isFirstTime"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            });
         }
     }];
 }

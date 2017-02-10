@@ -187,14 +187,6 @@
     }];
     [vBg addGestureRecognizer:tapGesture];
     
-//    if (x + itemWidth + padding >= self.scrollMain.width) {
-//        x = padding;
-//    }else{
-//        x = x + itemWidth + padding;
-//    }
-//    if (self.arrData.count/n > 0 && self.arrData.count%n == 0) {
-//        y = y + itemHeight + padding;
-//    }
     UILabel *lblDistanceCount = [UITools createLabelWithFrame:CGRectMake(0, 0, vBg.width, (vBg.height - 40)/2)
                                                  text:@""
                                                  font:[UIFont boldSystemFontOfSize:20]
@@ -226,6 +218,10 @@
     [UITools createViewWithFrame:CGRectMake(0, lblTimeCount.bottom, vBg.width, 1)
                  backgroundColor:[UIColor colorWithHexString:Color_devideLine]
                        superView:vBg];
+
+    if ((self.arrData.count + 1)/n > 0 && (self.arrData.count + 1)%n == 0) {
+        y = y + itemHeight + padding;
+    }
     
     self.scrollMain.contentSize = CGSizeMake(self.scrollMain.width, (self.arrData.count + 1)%n > 0 ? y + itemHeight + padding : y);
 }

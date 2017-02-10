@@ -95,12 +95,15 @@
 }
 
 //获取步数
-- (void)getStepCount:(void(^)(double value, NSError *error))completion
+- (void)getStepCountWithDate:(NSDate*)date andCompletion:(void(^)(double value, NSError *error))completion
 {
+    if (!date) {
+        return;
+    }
     HKQuantityType *stepType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc] initWithKey:HKSampleSortIdentifierEndDate ascending:NO];
     
-    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:stepType predicate:[HealthManagement predicateForSamplesToday] limit:HKObjectQueryNoLimit sortDescriptors:@[timeSortDescriptor] resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:stepType predicate:[HealthManagement predicateForSamplesWithDate:date] limit:HKObjectQueryNoLimit sortDescriptors:@[timeSortDescriptor] resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
         if(error)
         {
             completion(0,error);
@@ -128,10 +131,9 @@
  *
  *  @return 时间段
  */
-+ (NSPredicate *)predicateForSamplesToday {
++ (NSPredicate *)predicateForSamplesWithDate:(NSDate*)date{
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *now = [NSDate date];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     [components setHour:0];
     [components setMinute:0];
     [components setSecond: 0];

@@ -15,7 +15,7 @@
 
 +(id)shareInstance;
 
-- (void)getStepCount:(void(^)(double value, NSError *error))completion;
+- (void)getStepCountWithDate:(NSDate*)date andCompletion:(void(^)(double value, NSError *error))completion;
 
 - (void)authorizeHealthKit:(void(^)(BOOL success, NSError *error))compltion;
 @end
