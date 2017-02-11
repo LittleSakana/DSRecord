@@ -10,6 +10,7 @@
 #import "SportsItemVC.h"
 #import "LanguageItemListVC.h"
 #import "LocalNotificationListVC.h"
+#import "PasswordListVC.h"
 
 @interface SettingVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -51,6 +52,7 @@
     [self.arrSource addObject:@{@"name":@"Sports",@"value":@"sports"}];
     [self.arrSource addObject:@{@"name":@"Language",@"value":@"language"}];
     [self.arrSource addObject:@{@"name":@"提醒",@"value":@"notification"}];
+    [self.arrSource addObject:@{@"name":@"密码管理器",@"value":@"passwordManagement"}];
 }
 
 #pragma mark - 按钮点击事件
@@ -95,6 +97,15 @@
         }else if ([item[@"value"] isEqualToString:@"notification"]) {
             LocalNotificationListVC *vc = [LocalNotificationListVC new];
             [self dsPushViewController:vc animated:YES];
+        }else if ([item[@"value"] isEqualToString:@"passwordManagement"]) {
+            [R_Utils fingerprintAuthenticate:^(BOOL isSuccess, NSString *msg) {
+                if (isSuccess) {
+                    PasswordListVC *vc = [PasswordListVC new];
+                    [self dsPushViewController:vc animated:YES];
+                }else{
+                    [self showMessage:msg];
+                }
+            }];
         }
     }
 }

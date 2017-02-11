@@ -16,4 +16,6 @@
 
 + (void)hideExtraCellLine:(UITableView *)tableView;
 
++ (void)fingerprintAuthenticate:(void(^)(BOOL isSuccess,NSString *msg))completion;
+
 @end

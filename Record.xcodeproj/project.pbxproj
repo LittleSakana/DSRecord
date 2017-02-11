@@ -20,6 +20,8 @@
 		E9480AF81E45B13300977A21 /* SportsItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AF71E45B13300977A21 /* SportsItemVC.m */; };
 		E9480AFB1E45B2A700977A21 /* SportsItemAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AFA1E45B2A700977A21 /* SportsItemAddVC.m */; };
 		E9480AFE1E45B3B500977A21 /* UITools.m in Sources */ = {isa = PBXBuildFile; fileRef = E9480AFD1E45B3B500977A21 /* UITools.m */; };
+		E94AC5601E4EE666004300EE /* PasswordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AC55F1E4EE666004300EE /* PasswordListVC.m */; };
+		E94AC5631E4EE688004300EE /* PasswordAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E94AC5621E4EE688004300EE /* PasswordAddVC.m */; };
 		E94C6C071E4B098100055478 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C061E4B098100055478 /* HealthKit.framework */; };
 		E94C6C0B1E4B0BC300055478 /* HealthManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = E94C6C0A1E4B0BC300055478 /* HealthManagement.m */; };
 		E954FF7C1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E954FF7B1E4BFEFE00D1D0BA /* AddLocalNotificationVC.m */; };
@@ -97,6 +99,10 @@
 		E9480AFC1E45B3B500977A21 /* UITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITools.h; sourceTree = "<group>"; };
 		E9480AFD1E45B3B500977A21 /* UITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITools.m; sourceTree = "<group>"; };
 		E9480AFF1E45B3E300977A21 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E94AC55E1E4EE666004300EE /* PasswordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordListVC.h; sourceTree = "<group>"; };
+		E94AC55F1E4EE666004300EE /* PasswordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordListVC.m; sourceTree = "<group>"; };
+		E94AC5611E4EE688004300EE /* PasswordAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordAddVC.h; sourceTree = "<group>"; };
+		E94AC5621E4EE688004300EE /* PasswordAddVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordAddVC.m; sourceTree = "<group>"; };
 		E94B45221E47059B0082E90E /* ConstantsDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantsDefine.h; sourceTree = "<group>"; };
 		E94C6C061E4B098100055478 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E94C6C081E4B098100055478 /* Record.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Record.entitlements; sourceTree = "<group>"; };
@@ -244,6 +250,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E94AC55D1E4EE631004300EE /* PasswordManagement */ = {
+			isa = PBXGroup;
+			children = (
+				E94AC55E1E4EE666004300EE /* PasswordListVC.h */,
+				E94AC55F1E4EE666004300EE /* PasswordListVC.m */,
+				E94AC5611E4EE688004300EE /* PasswordAddVC.h */,
+				E94AC5621E4EE688004300EE /* PasswordAddVC.m */,
+			);
+			path = PasswordManagement;
+			sourceTree = "<group>";
+		};
 		E96CBBDA1E441C89006A0171 = {
 			isa = PBXGroup;
 			children = (
@@ -269,7 +286,6 @@
 		E96CBBE51E441C89006A0171 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				E94C6C081E4B098100055478 /* Record.entitlements */,
 				E96CBBE91E441C89006A0171 /* AppDelegate.h */,
 				E96CBBEA1E441C89006A0171 /* AppDelegate.m */,
 				E96CBBF51E441C89006A0171 /* Assets.xcassets */,
@@ -279,6 +295,8 @@
 				E96CBC1D1E442233006A0171 /* Home */,
 				E96CBBFA1E441C89006A0171 /* Info.plist */,
 				E96CBC1E1E442233006A0171 /* Maintab */,
+				E94AC55D1E4EE631004300EE /* PasswordManagement */,
+				E94C6C081E4B098100055478 /* Record.entitlements */,
 				E9077D511E48962000025418 /* Setting */,
 				E96CBC291E442531006A0171 /* Sprots */,
 				E96CBBE61E441C89006A0171 /* Supporting Files */,
@@ -606,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9480AF81E45B13300977A21 /* SportsItemVC.m in Sources */,
+				E94AC5601E4EE666004300EE /* PasswordListVC.m in Sources */,
 				E90486651E49FB1A007A38B5 /* RunRecordAddVC.m in Sources */,
 				E9480AFE1E45B3B500977A21 /* UITools.m in Sources */,
 				E96CBC611E446D7E006A0171 /* Language+CoreDataClass.m in Sources */,
@@ -624,6 +643,7 @@
 				E9077D541E48963400025418 /* SettingVC.m in Sources */,
 				E97123BD1E49A2DA005DE55A /* LanguageRecordAddVC.m in Sources */,
 				E954FF861E4C00E400D1D0BA /* LocalNotification+CoreDataProperties.m in Sources */,
+				E94AC5631E4EE688004300EE /* PasswordAddVC.m in Sources */,
 				E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */,
 				E96CBBEB1E441C89006A0171 /* AppDelegate.m in Sources */,
 				E9480AF21E45A86E00977A21 /* SportsItem+CoreDataProperties.m in Sources */,
