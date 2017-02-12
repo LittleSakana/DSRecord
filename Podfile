@@ -7,4 +7,5 @@ pod 'FDFullscreenPopGesture'
 pod 'Masonry'
 pod 'YYModel'
 pod 'MBProgressHUD'
+pod 'SFHFKeychainUtils'
 end

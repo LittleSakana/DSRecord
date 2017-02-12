@@ -7,7 +7,10 @@
 //
 
 #import "BaseVC.h"
+#import "Password+CoreDataClass.h"
 
 @interface PasswordAddVC : BaseVC
+
+@property (nonatomic, strong) Password  *password;
 
 @end

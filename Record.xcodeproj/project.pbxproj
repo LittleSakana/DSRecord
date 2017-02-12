@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		638986DDFE781E740FBA445A /* libPods-Record.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */; };
+		E902DFAB1E5033D9005F251F /* Password+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E902DFA81E5033D9005F251F /* Password+CoreDataClass.m */; };
+		E902DFAC1E5033D9005F251F /* Password+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E902DFAA1E5033D9005F251F /* Password+CoreDataProperties.m */; };
 		E90486621E49FB04007A38B5 /* RunRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E90486611E49FB04007A38B5 /* RunRecordListVC.m */; };
 		E90486651E49FB1A007A38B5 /* RunRecordAddVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E90486641E49FB1A007A38B5 /* RunRecordAddVC.m */; };
 		E9077D501E48788900025418 /* SportsRecordListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9077D4F1E48788900025418 /* SportsRecordListVC.m */; };
@@ -75,6 +77,11 @@
 		16DD218C103556F34CFA59E5 /* Pods-Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.release.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.release.xcconfig"; sourceTree = "<group>"; };
 		1A3A79C02EB4D7FE3688DC58 /* libPods-Record.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Record.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB30D94857F71693411EA79 /* Pods-Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Record.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Record/Pods-Record.debug.xcconfig"; sourceTree = "<group>"; };
+		E902DFA61E50336E005F251F /* Model4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model4.xcdatamodel; sourceTree = "<group>"; };
+		E902DFA71E5033D9005F251F /* Password+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Password+CoreDataClass.h"; sourceTree = "<group>"; };
+		E902DFA81E5033D9005F251F /* Password+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Password+CoreDataClass.m"; sourceTree = "<group>"; };
+		E902DFA91E5033D9005F251F /* Password+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Password+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E902DFAA1E5033D9005F251F /* Password+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Password+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E90486601E49FB04007A38B5 /* RunRecordListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunRecordListVC.h; sourceTree = "<group>"; };
 		E90486611E49FB04007A38B5 /* RunRecordListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunRecordListVC.m; sourceTree = "<group>"; };
 		E90486631E49FB1A007A38B5 /* RunRecordAddVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunRecordAddVC.h; sourceTree = "<group>"; };
@@ -398,6 +405,10 @@
 		E96CBC301E4458D3006A0171 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				E902DFA71E5033D9005F251F /* Password+CoreDataClass.h */,
+				E902DFA81E5033D9005F251F /* Password+CoreDataClass.m */,
+				E902DFA91E5033D9005F251F /* Password+CoreDataProperties.h */,
+				E902DFAA1E5033D9005F251F /* Password+CoreDataProperties.m */,
 				E96CBC651E4471F0006A0171 /* DataManagement.h */,
 				E96CBC661E4471F0006A0171 /* DataManagement.m */,
 				E94C6C091E4B0BC300055478 /* HealthManagement.h */,
@@ -501,7 +512,7 @@
 				TargetAttributes = {
 					E96CBBE21E441C89006A0171 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XVWEVBUWZS;
+						DevelopmentTeam = ARHDRY84Z5;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -636,6 +647,7 @@
 				E9480AFB1E45B2A700977A21 /* SportsItemAddVC.m in Sources */,
 				E954FF7F1E4BFFB300D1D0BA /* LocalNotificationListVC.m in Sources */,
 				E96CBC331E445C18006A0171 /* Model.xcdatamodeld in Sources */,
+				E902DFAC1E5033D9005F251F /* Password+CoreDataProperties.m in Sources */,
 				E9480AEC1E459E4100977A21 /* R_Utils.m in Sources */,
 				E96CBC2F1E44258B006A0171 /* ForeignLanguageVC.m in Sources */,
 				E96CBC631E446D7E006A0171 /* Run+CoreDataClass.m in Sources */,
@@ -657,6 +669,7 @@
 				E97123B41E49A27A005DE55A /* LanguageRecordListVC.m in Sources */,
 				E97123BA1E49A2B9005DE55A /* LanguageItemAddVC.m in Sources */,
 				E954FF851E4C00E400D1D0BA /* LocalNotification+CoreDataClass.m in Sources */,
+				E902DFAB1E5033D9005F251F /* Password+CoreDataClass.m in Sources */,
 				E90486621E49FB04007A38B5 /* RunRecordListVC.m in Sources */,
 				E96CBBE81E441C89006A0171 /* main.m in Sources */,
 				E96CBC671E4471F0006A0171 /* DataManagement.m in Sources */,
@@ -792,14 +805,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Record/Record.entitlements;
-				DEVELOPMENT_TEAM = XVWEVBUWZS;
+				DEVELOPMENT_TEAM = ARHDRY84Z5;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/Record/PrefixHeader.pch;
 				INFOPLIST_FILE = Record/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nonobank.Record;
+				PRODUCT_BUNDLE_IDENTIFIER = nonobank.Record1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Record/DataManagement/Record-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -814,14 +827,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Record/Record.entitlements;
-				DEVELOPMENT_TEAM = XVWEVBUWZS;
+				DEVELOPMENT_TEAM = ARHDRY84Z5;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/Record/PrefixHeader.pch;
 				INFOPLIST_FILE = Record/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nonobank.Record;
+				PRODUCT_BUNDLE_IDENTIFIER = nonobank.Record1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Record/DataManagement/Record-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -923,11 +936,12 @@
 		E96CBC311E445C18006A0171 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E902DFA61E50336E005F251F /* Model4.xcdatamodel */,
 				E954FF801E4C005700D1D0BA /* Model3.xcdatamodel */,
 				E97123BE1E49B9B4005DE55A /* Model2.xcdatamodel */,
 				E96CBC321E445C18006A0171 /* Model.xcdatamodel */,
 			);
-			currentVersion = E954FF801E4C005700D1D0BA /* Model3.xcdatamodel */;
+			currentVersion = E902DFA61E50336E005F251F /* Model4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

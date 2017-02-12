@@ -12,5 +12,7 @@
 #define Color_blue                      @"007aff"
 #define Color_devideLine                @"f5f5f5"
 
+#define Record_Service                  @"RecordService"
+
 #endif /* ConstantsDefine_h */
 

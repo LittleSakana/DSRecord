@@ -8,6 +8,8 @@
 
 #import "PasswordListVC.h"
 #import "PasswordAddVC.h"
+#import "Password+CoreDataClass.h"
+#import <SFHFKeychainUtils.h>
 
 @interface PasswordListVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -60,15 +62,20 @@
 
 - (void)refreashData{
     [self.arrSource removeAllObjects];
-//    [self.arrSource addObjectsFromArray:[Language searchLanguageWithKeyword:self.keyword andTime:self.time]];
+    [self.arrSource addObjectsFromArray:[Password searchPasswordWithKeyword:@""]];
     [self.tbvMain reloadData];
 }
 
 #pragma mark - 按钮点击事件
 - (void)addLanguageRecord{
-    PasswordAddVC *vcAdd = [PasswordAddVC new];
-//    vcAdd.languageType = [LanguageItem searchItemByWithKeyword:self.keyword];
-    [self dsPushViewController:vcAdd animated:YES];
+    [R_Utils fingerprintAuthenticate:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            PasswordAddVC *vcAdd = [PasswordAddVC new];
+            [self dsPushViewController:vcAdd animated:YES];
+        }else{
+            [self showMessage:msg];
+        }
+    }];
 }
 
 #pragma mark - 网络请求
@@ -86,9 +93,9 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.row < self.arrSource.count) {
-//        Language *item = [self.arrSource objectAtIndex:indexPath.row];
-//        cell.textLabel.text = item.language_time;
-//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%i",item.language_count];
+        Password *item = [self.arrSource objectAtIndex:indexPath.row];
+        cell.textLabel.text = item.detailDes;
+        cell.detailTextLabel.text = item.account;
     }
     return cell;
 }
@@ -124,26 +131,40 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row < self.arrSource.count) {
-//        Language *item = [self.arrSource objectAtIndex:indexPath.row];
-//        LanguageRecordAddVC *vcAdd = [LanguageRecordAddVC new];
-//        vcAdd.languageRecord = item;
-//        [self dsPushViewController:vcAdd animated:YES];
-    }
+    [R_Utils fingerprintAuthenticate:^(BOOL isSuccess, NSString *msg) {
+        if (!isSuccess) {
+            [self showMessage:msg];
+            return;
+        }
+        if (indexPath.row < self.arrSource.count) {
+            Password *item = [self.arrSource objectAtIndex:indexPath.row];
+            PasswordAddVC *vcAdd = [PasswordAddVC new];
+            vcAdd.password = item;
+            [self dsPushViewController:vcAdd animated:YES];
+        }
+    }];
 }
 
 #pragma mark - 其他
 - (void)deleteItemAtIndex:(NSInteger)index{
-    if (index < self.arrSource.count) {
-//        Language *item = [self.arrSource objectAtIndex:index];
-//        BOOL flag = [Language deleteObjectWithTime:item.language_time andKeyword:item.language_keyword];
-//        if (flag) {
-//            [self.arrSource removeObject:item];
-//            [self.tbvMain reloadData];
-//        }else{
-//            [self showMessage:@"删除学习记录失败"];
-//        }
-    }
+    [R_Utils fingerprintAuthenticate:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            if (index < self.arrSource.count) {
+                NSError *error;
+                Password *item = [self.arrSource objectAtIndex:index];
+                [SFHFKeychainUtils deleteItemForUsername:item.keyword andServiceName:Record_Service error:&error];
+                BOOL flag = [Password deleteObjectKeyword:item.keyword];
+                if (flag && !error) {
+                    [self.arrSource removeObject:item];
+                    [self.tbvMain reloadData];
+                }else{
+                    [self showMessage:@"删除密码失败"];
+                }
+            }
+        }else{
+            [self showMessage:msg];
+        }
+    }];
 }
 
 @end

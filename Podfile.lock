@@ -3,6 +3,7 @@ PODS:
   - IQKeyboardManager (4.0.8)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
+  - SFHFKeychainUtils (0.0.1)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
+  - SFHFKeychainUtils
   - YYCategories
   - YYModel
 
@@ -21,9 +23,10 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7452c369d85c884a556bb0cd7f5b875a5c034c6f
+PODFILE CHECKSUM: 5d29eb603ffb62cc2466de3a0ad9dfee439c3c7c
 
 COCOAPODS: 1.1.1
