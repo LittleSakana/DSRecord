@@ -79,7 +79,7 @@
     self.tfDistance.placeholder = @"请输入跑步距离";
     self.tfDistance.frame = CGRectMake(lblDistanceTitle.right, lblDistanceTitle.top, self.lblTime.width, lblDistanceTitle.height);
     self.tfDistance.textColor = [UIColor colorWithHexString:@"666666"];
-    self.tfDistance.keyboardType = UIKeyboardTypeNumberPad;
+    self.tfDistance.keyboardType = UIKeyboardTypeDecimalPad;
     self.tfDistance.font = [UIFont systemFontOfSize:15];
     self.tfDistance.textAlignment = NSTextAlignmentRight;
     self.tfDistance.rightViewMode = UITextFieldViewModeAlways;
