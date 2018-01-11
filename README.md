@@ -1,6 +1,6 @@
 # README
 
-**This is a iOS project write with objective-c. You can build and run it with Xcode on your iPhone. In this app, you can write your username and password securely, because all the account data is stored in your iPhone, never upload to anywhere, also you youself have to input your finger print twice to access your account.** 
+**This is a iOS project write with objective-c. You can build and run it with Xcode on your iPhone. In this app, you can write your username and password securely, because all the account data is stored in your iPhone, never upload to anywhere else, also you youself have to input your finger print twice to access your account.** 
 
 ## What is this project for?
 
