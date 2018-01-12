@@ -22,10 +22,10 @@ DerivedData
 *.ipa
 
 # CocoaPods
-profile
+#profile
 *.moved-aside
 DerivedData
 .idea/
 *.hmap
 
-Pods
+#Pods
